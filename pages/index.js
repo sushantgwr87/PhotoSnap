@@ -6,7 +6,6 @@ const HomePage = () => {
     <div>
       <Navbar />
       <div>
-        Index Page
       </div>
     </div>
   );
