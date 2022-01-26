@@ -38,18 +38,20 @@ const Navbar = () => {
 								<Link href="#">FEATURES</Link>
 								<Link href="#">PRICING</Link>
 							</ul>
-							<button className='inviteButton'>Get an Invite</button>
+							<button className='inviteButton'>GET IN INVITE</button>
 						</div>
 					)
 					:
 					<>
-						<button className='navButton' onClick={() => setShowDropdown(b => !b)}>&#9776;</button>
+						<button className='navButton' onClick={() => setShowDropdown(b => !b)}>
+							<div className={showDropdown ? "menuClose" : "menuOpen"}></div>
+						</button>
 						<div className={showDropdown ? "navMobile showNav" : "navMobile hideNav"} ref={dropdown}>
 							<ul>
 								<li><Link href="#">STORIES</Link></li>
 								<li><Link href="#">FEATURES</Link></li>
 								<li><Link href="#">PRICING</Link></li>
-								<li><button className='inviteButton'>Get an Invite</button></li>
+								<li><button className='inviteButton'>GET IN INVITE</button></li>
 							</ul>
 						</div>
 					</>
