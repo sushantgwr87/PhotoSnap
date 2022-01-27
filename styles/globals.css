@@ -1,12 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel&family=Raleway&display=swap');
 
 :root {
-  --backgroundColor: #dedee4;
+  --primaryColor: #f7f7f7;
+  --secondaryColor: #141414;
   --hoverColor: #1cb7e6;
-  --imageOverlay: #c4d2f0;
-  --fontBodyColor: #646464;
-  --fontHeadColor: #141414;
-  --loaderColor: #030529;
   --fontHead: 'Cinzel', serif;
   --fontBody: 'Raleway', sans-serif;
 }
@@ -18,6 +15,14 @@
   margin: 0;
 }
 
+html, body {
+  height: 100%;
+}
+
+body {
+  background-color: var(--primaryColor);
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -25,24 +30,29 @@ a {
 
 header {
   position: fixed;
+  background-color: var(--primaryColor);
   width: 100%;
   top: 0;
+  z-index: 1;
   padding: 10px 5vw;
   border-bottom: 1px solid #ddd;
 }
 
 nav a {
   padding: 0 12px;
-  font-size: 25px;
+  font-size: 20px;
   font-family: var(--fontHead);
+  font-weight: bold;
 }
 
 nav {
   position: relative;
+  background-color: var(--primaryColor);
   width: 100%;
   height: auto;
   display: flex;
   flex-direction: row;
+  z-index: 1;
   justify-content: space-between;
   align-items: center;
 }
@@ -50,6 +60,7 @@ nav {
 nav .logo {
   width: 250px;
   margin-right: auto;
+  cursor: pointer;
 }
 
 button {
@@ -61,14 +72,14 @@ button {
 nav .inviteModalButton {
   padding: 10px 20px;
   font-size: calc(12px + 0.3vw);
-  background-color: black;
-  color: white;
+  background-color: var(--secondaryColor);
+  color: var(--primaryColor);
   border-radius: 2px;
 }
 
 nav .inviteModalButton:hover {
-  background-color: rgb(3, 102, 184);
-  color: black;
+  background-color: var(--hoverColor);
+  color: var(--secondaryColor);
 }
 
 /* only desktop Nav styling */
@@ -82,6 +93,8 @@ nav .navDesktop {
 nav .navDesktop ul {
   padding-left: 30px;
   padding-right: 10px;
+  /* set margin auto to align the nav items,for left alignment use margin-left: auto,
+  for right alignment use margin-right: auto and for center simply margin: auto.*/
   margin: auto;
 }
 
@@ -93,12 +106,13 @@ nav .navMobile {
   right: 0px;
   width: 45%;
   z-index: 1;
-  background-color: rgb(214, 214, 214);
+  background-color: var(--primaryColor);
   transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 nav .navMobile ul {
   display: flex;
+  z-index: 2;
   align-items: center;
   position: fixed;
   justify-content: center;
@@ -106,7 +120,7 @@ nav .navMobile ul {
   width: 100%;
   height: 100vh;
   list-style-type: none;
-  background-color: rgb(214, 214, 214);
+  background-color: var(--primaryColor);
 }
 
 /* to hide and show side navbar in mobile */
@@ -136,7 +150,7 @@ nav .navMobileButton {
   transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 .hamburgerMenuOpen {
-  background-color: black;
+  background-color: var(--secondaryColor);
 }
 .hamburgerMenuClose {
   transform: translateX(-50px);
@@ -145,7 +159,7 @@ nav .navMobileButton {
 .hamburgerMenuOpen::before , .hamburgerMenuOpen::after, .hamburgerMenuClose::before , .hamburgerMenuClose::after {
   position: absolute;
   content: "";
-  background-color: rgb(0, 0, 0);
+  background-color: var(--secondaryColor);
   width: 30px;
   height: 5px;
   transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
@@ -161,4 +175,41 @@ nav .navMobileButton {
 }
 .hamburgerMenuClose::after {
   transform: rotate(-45deg) translate(35px, 35px);
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  background-color: var(--secondaryColor);
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  color: var(--primaryColor);
+}
+.container {
+  min-height: 100vh;
+  position: relative;
+}
+main {
+  position: relative;
+  padding-top: 100px;
+  padding-bottom:150px;
+}
+
+.not-found {
+  margin-bottom: 150px;
+  text-align: center;
+}
+.not-found h2 {
+  margin-bottom: 20px;
+}
+.not-found p{
+  margin-bottom: 50px;
+}
+.not-found a {
+  font-size: 16px;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: var(--text2);
+  color: var(--text1);
 }
