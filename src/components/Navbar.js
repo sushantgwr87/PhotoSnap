@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import logo from '../../public/PhotoSnap2.svg';
+import logo from '../../public/logo/logo_font_Volk.svg';
 import Image from 'next/image';
 import Link from 'next/link';
 import useBreakpoints from '../customHook/useBreakpoints';
@@ -28,15 +28,19 @@ const Navbar = () => {
 		<header>
 			<nav>
 				<div className="logo">
-					<Image src={logo} alt='Logo' />
+					<Link href="/">
+						<a>
+							<Image src={logo} alt='Logo' />
+						</a>
+					</Link>
 				</div>
 				{isMd ?
 					(
 						<div className='navDesktop'>
 							<ul>
-								<Link href="#">STORIES</Link>
-								<Link href="#">FEATURES</Link>
-								<Link href="#">PRICING</Link>
+								<Link href="/stories">STORIES</Link>
+								<Link href="/features">FEATURES</Link>
+								<Link href="/pricing">PRICING</Link>
 							</ul>
 							<button className='inviteModalButton'>GET IN INVITE</button>
 						</div>
@@ -48,9 +52,9 @@ const Navbar = () => {
 						</button>
 						<div className={showDropdown ? "navMobile showSideNavbar" : "navMobile hideSideNavbar"} ref={dropdown}>
 							<ul>
-								<li><Link href="#">STORIES</Link></li>
-								<li><Link href="#">FEATURES</Link></li>
-								<li><Link href="#">PRICING</Link></li>
+								<li><Link href="/stories">STORIES</Link></li>
+								<li><Link href="/features">FEATURES</Link></li>
+								<li><Link href="/pricing">PRICING</Link></li>
 								<li><button className='inviteModalButton'>GET IN INVITE</button></li>
 							</ul>
 						</div>
