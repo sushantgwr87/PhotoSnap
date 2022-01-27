@@ -58,48 +58,7 @@ button {
   font-family: var(--fontBody);
 }
 
-nav .navButton {
-  z-index: 2;
-  background-color: unset;
-  border-radius: 2px;
-}
-
-.menuOpen, .menuClose {
-  display: inline-block;
-  width: 20px;
-  height: 5px;
-  transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-.menuOpen {
-  background-color: black;
-}
-.menuClose {
-  transform: translateX(-50px);
-  background: transparent;
-}
-.menuOpen::before , .menuOpen::after, .menuClose::before , .menuClose::after {
-  position: absolute;
-  content: "";
-  background-color: rgb(0, 0, 0);
-  width: 30px;
-  height: 5px;
-  transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-.menuOpen::before {
-  transform: translate(-20px, -10px);
-}
-.menuOpen::after {
-  transform: translate(-20px, 10px);
-}
-
-.menuClose::before {
-  transform: rotate(45deg) translate(35px, -35px);
-}
-.menuClose::after {
-  transform: rotate(-45deg) translate(35px, 35px);
-}
-
-nav .inviteButton {
+nav .inviteModalButton {
   padding: 10px 20px;
   font-size: calc(12px + 0.3vw);
   background-color: black;
@@ -107,16 +66,35 @@ nav .inviteButton {
   border-radius: 2px;
 }
 
-nav .inviteButton:hover {
+nav .inviteModalButton:hover {
   background-color: rgb(3, 102, 184);
   color: black;
 }
 
+/* only desktop Nav styling */
 nav .navDesktop {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
+}
+
+nav .navDesktop ul {
+  padding-left: 30px;
+  padding-right: 10px;
+  margin: auto;
+}
+
+/* Mobile navbar styling */
+nav .navMobile {
+  position: fixed;
+  display: block;
+  top: 0px;
+  right: 0px;
+  width: 45%;
+  z-index: 1;
+  background-color: rgb(214, 214, 214);
+  transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 nav .navMobile ul {
@@ -130,32 +108,57 @@ nav .navMobile ul {
   list-style-type: none;
   background-color: rgb(214, 214, 214);
 }
-nav .navMobile {
-  position: fixed;
-  display: block;
-  top: 0px;
-  right: 0px;
-  width: 45%;
-  z-index: 1;
-  background-color: rgb(214, 214, 214);
-  transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
 
-.hideNav {
+/* to hide and show side navbar in mobile */
+.hideSideNavbar {
   opacity: 0;
   transform: translateX(100vw);
 }
-.showNav {
+.showSideNavbar {
   opacity: 1;
   transform: translateX(0vw);
 }
 
-nav .navDesktop ul {
-  padding-left: 30px;
-  padding-right: 10px;
-  margin: auto;
-}
-
 nav .navMobile ul li {
   padding: 20px;
+}
+
+/* Hamburger mobile button styling and animation */
+nav .navMobileButton {
+  z-index: 2;
+  background-color: unset;
+  border-radius: 2px;
+}
+.hamburgerMenuOpen, .hamburgerMenuClose {
+  display: inline-block;
+  width: 20px;
+  height: 5px;
+  transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.hamburgerMenuOpen {
+  background-color: black;
+}
+.hamburgerMenuClose {
+  transform: translateX(-50px);
+  background: transparent;
+}
+.hamburgerMenuOpen::before , .hamburgerMenuOpen::after, .hamburgerMenuClose::before , .hamburgerMenuClose::after {
+  position: absolute;
+  content: "";
+  background-color: rgb(0, 0, 0);
+  width: 30px;
+  height: 5px;
+  transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.hamburgerMenuOpen::before {
+  transform: translate(-20px, -10px);
+}
+.hamburgerMenuOpen::after {
+  transform: translate(-20px, 10px);
+}
+.hamburgerMenuClose::before {
+  transform: rotate(45deg) translate(35px, -35px);
+}
+.hamburgerMenuClose::after {
+  transform: rotate(-45deg) translate(35px, 35px);
 }
