@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import logo from '../../public/logo/logo_font_Volk.svg';
+import logo from '../../public/logo/photosnapNavbarLogo.svg';
 import Image from 'next/image';
 import Link from 'next/link';
 import useBreakpoints from '../customHook/useBreakpoints';
