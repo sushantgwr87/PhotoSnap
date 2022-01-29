@@ -198,7 +198,7 @@ footer {
   bottom: 0;
   background-color: var(--secondaryColor);
   width: 100%;
-  height: 100px;
+  /* height: 300px; */
   color: var(--primaryColor);
 }
 
@@ -212,7 +212,7 @@ footer {
 main {
   position: relative;
   padding-top: 100px;
-  padding-bottom: 150px;
+  padding-bottom: 20vw;
 }
 
 /* 404 error page or not found page styling */
@@ -235,4 +235,11 @@ main {
   padding: 10px;
   background-color: var(--text2);
   color: var(--text1);
+}
+
+.arrow {
+  display: inline-block;
+  width: 28px;
+  margin-left: 10px;
+  fill: chartreuse;
 }
