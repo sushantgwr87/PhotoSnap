@@ -15,7 +15,8 @@
   margin: 0;
 }
 
-html, body {
+html,
+body {
   height: 100%;
 }
 
@@ -28,6 +29,13 @@ a {
   text-decoration: none;
 }
 
+button {
+  cursor: pointer;
+  border: none;
+  font-family: var(--fontBody);
+}
+
+/* Navbar styling */
 header {
   position: fixed;
   background-color: var(--primaryColor);
@@ -63,12 +71,6 @@ nav .logo {
   cursor: pointer;
 }
 
-button {
-  cursor: pointer;
-  border: none;
-  font-family: var(--fontBody);
-}
-
 nav .inviteModalButton {
   padding: 10px 20px;
   font-size: calc(12px + 0.3vw);
@@ -94,7 +96,7 @@ nav .navDesktop ul {
   padding-left: 30px;
   padding-right: 10px;
   /* set margin auto to align the nav items,for left alignment use margin-left: auto,
-  for right alignment use margin-right: auto and for center simply margin: auto.*/
+    for right alignment use margin-right: auto and for center simply margin: auto.*/
   margin: auto;
 }
 
@@ -123,18 +125,19 @@ nav .navMobile ul {
   background-color: var(--primaryColor);
 }
 
+nav .navMobile ul li {
+  padding: 20px;
+}
+
 /* to hide and show side navbar in mobile */
 .hideSideNavbar {
   opacity: 0;
   transform: translateX(100vw);
 }
+
 .showSideNavbar {
   opacity: 1;
   transform: translateX(0vw);
-}
-
-nav .navMobile ul li {
-  padding: 20px;
 }
 
 /* Hamburger mobile button styling and animation */
@@ -143,20 +146,28 @@ nav .navMobileButton {
   background-color: unset;
   border-radius: 2px;
 }
-.hamburgerMenuOpen, .hamburgerMenuClose {
+
+.hamburgerMenuOpen,
+.hamburgerMenuClose {
   display: inline-block;
   width: 20px;
   height: 5px;
   transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
+
 .hamburgerMenuOpen {
   background-color: var(--secondaryColor);
 }
+
 .hamburgerMenuClose {
   transform: translateX(-50px);
   background: transparent;
 }
-.hamburgerMenuOpen::before , .hamburgerMenuOpen::after, .hamburgerMenuClose::before , .hamburgerMenuClose::after {
+
+.hamburgerMenuOpen::before,
+.hamburgerMenuOpen::after,
+.hamburgerMenuClose::before,
+.hamburgerMenuClose::after {
   position: absolute;
   content: "";
   background-color: var(--secondaryColor);
@@ -164,48 +175,60 @@ nav .navMobileButton {
   height: 5px;
   transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
+
 .hamburgerMenuOpen::before {
   transform: translate(-20px, -10px);
 }
+
 .hamburgerMenuOpen::after {
   transform: translate(-20px, 10px);
 }
+
 .hamburgerMenuClose::before {
   transform: rotate(45deg) translate(35px, -35px);
 }
+
 .hamburgerMenuClose::after {
   transform: rotate(-45deg) translate(35px, 35px);
 }
 
+/* footer styling */
 footer {
   position: absolute;
   bottom: 0;
   background-color: var(--secondaryColor);
   width: 100%;
   height: 100px;
-  text-align: center;
   color: var(--primaryColor);
 }
+
+/* container containing main content and footer styling */
 .container {
   min-height: 100vh;
   position: relative;
 }
+
+/* main content styling */
 main {
   position: relative;
   padding-top: 100px;
-  padding-bottom:150px;
+  padding-bottom: 150px;
 }
 
+/* 404 error page or not found page styling */
 .not-found {
   margin-bottom: 150px;
   text-align: center;
 }
+
 .not-found h2 {
   margin-bottom: 20px;
 }
-.not-found p{
+
+.not-found p {
   margin-bottom: 50px;
 }
+
 .not-found a {
   font-size: 16px;
   border-radius: 10px;
