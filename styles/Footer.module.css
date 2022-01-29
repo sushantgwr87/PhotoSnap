@@ -1,3 +1,58 @@
-.footerLogo {
-    width: 10%;
+.footer {
+    display: grid;
+    align-items: center;
+    justify-content: space-around;
+    grid-template-areas:
+        '. Logo FooterNav FooterNav . . FooterInviteButton .'
+        '. OutLinks FooterNav FooterNav . . copyright .';
+    grid-gap: 20px 50px;
+    background-color: var(--secondaryColor);
+    padding: 40px 20px 20px 20px;
 }
+.footerLogo {
+    grid-area: Logo;
+    padding: 10px 0;
+    width: 200px;
+}
+.footerNav {
+    grid-area: FooterNav;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    list-style-type: none;
+    /* width: 100%; */
+}
+.footerNav li {
+    padding: 10px 0;
+}
+.footerInviteButton {
+    /* width: 100%; */
+    grid-area: FooterInviteButton;
+    font-weight: bold;
+    margin-left: auto;
+    padding: 15px 20px;
+    align-items: center;
+}
+.outLinks {
+    grid-area: OutLinks;
+    text-align: left;
+    margin-right: auto;
+}
+.outLinks a {
+    display: inline-block;
+    padding: 10px;
+}
+.copyright {
+    grid-area: copyright;
+    text-align: right;
+    margin-left: auto;
+    /* width: 100%; */
+}
+.portfolio {
+    width: 50px;
+}
+
+.cls-3 {
+    fill: chartreuse !important;
+  }
