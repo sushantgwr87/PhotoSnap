@@ -21,13 +21,11 @@
     flex-direction: column;
     justify-content: center;
     list-style-type: none;
-    /* width: 100%; */
 }
 .footerNav li {
     padding: 10px 0;
 }
 .footerInviteButton {
-    /* width: 100%; */
     grid-area: FooterInviteButton;
     font-weight: bold;
     margin-left: auto;
@@ -49,10 +47,3 @@
     margin-left: auto;
     /* width: 100%; */
 }
-.portfolio {
-    width: 50px;
-}
-
-.cls-3 {
-    fill: chartreuse !important;
-  }
