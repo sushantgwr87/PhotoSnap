@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-import logo from '../../public/logo/photosnapNavbarLogo.svg';
-import Image from 'next/image';
 import Link from 'next/link';
 import useBreakpoints from '../customHook/useBreakpoints';
+import styles from '../../styles/Navbar.module.css';
+import SVGIcon from './SVGIcon';
 
 const Navbar = () => {
 	const { isMd } = useBreakpoints();
@@ -27,35 +27,35 @@ const Navbar = () => {
 	return (
 		<header>
 			<nav>
-				<div className="logo">
+				<div className={styles.logo}>
 					<Link href="/">
-						<a>
-							<Image src={logo} alt='Logo' />
+						<a style={{width: 0}}>
+							<SVGIcon name="photosnap" fill={'#000'} width={'200px'} />
 						</a>
 					</Link>
 				</div>
 				{isMd ?
 					(
-						<div className='navDesktop'>
+						<div className={styles.navDesktop}>
 							<ul>
 								<Link href="/stories">STORIES</Link>
 								<Link href="/features">FEATURES</Link>
 								<Link href="/pricing">PRICING</Link>
 							</ul>
-							<button className='inviteModalButton'>GET IN INVITE</button>
+							<button className={styles.inviteModalButton}>GET AN INVITE</button>
 						</div>
 					)
 					:
 					<>
-						<button className='navMobileButton' onClick={() => setShowDropdown(b => !b)}>
-							<div className={showDropdown ? "hamburgerMenuClose" : "hamburgerMenuOpen"}></div>
+						<button className={styles.navMobileButton} onClick={() => setShowDropdown(b => !b)}>
+							<div className={showDropdown ? styles.hamburgerMenuClose : styles.hamburgerMenuOpen}></div>
 						</button>
-						<div className={showDropdown ? "navMobile showSideNavbar" : "navMobile hideSideNavbar"} ref={dropdown}>
+						<div className={`${styles.navMobile} ${showDropdown ? styles.showSideNavbar : styles.hideSideNavbar}`} ref={dropdown}>
 							<ul>
 								<li><Link href="/stories">STORIES</Link></li>
 								<li><Link href="/features">FEATURES</Link></li>
 								<li><Link href="/pricing">PRICING</Link></li>
-								<li><button className='inviteModalButton'>GET IN INVITE</button></li>
+								<li><button className={styles.inviteModalButton}>GET IN INVITE</button></li>
 							</ul>
 						</div>
 					</>
