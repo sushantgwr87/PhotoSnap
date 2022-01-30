@@ -1,11 +1,10 @@
-import Image from 'next/image';
 import React from 'react';
-import logo from '../../public/logo/photosnapFooterLogo.svg';
-import PortfolioLogo from '../../public/icon/sgwr_logo.svg';
+import Image from 'next/image';
 import Link from 'next/link';
 import styles from '../../styles/Footer.module.css';
+import logo from '../../public/logo/photosnapFooterLogo.svg';
+import PortfolioLogo from '../../public/icon/sgwr_logo.svg';
 import arrow from '../../public/icon/arrow_icon.svg';
-// import sprite from '../../public/asset/icons.svg';
 
 const Footer = () => {
   const portfolioLink = "https://sushantgangwar.netlify.app/";
