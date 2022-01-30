@@ -48,7 +48,8 @@ header {
 
 nav a {
   padding: 0 12px;
-  font-size: 20px;
+  font-size: calc(12px + 0.5vw);
+  color: var(--secondaryColor);
   font-family: var(--fontHead);
   font-weight: bold;
 }
@@ -63,133 +64,6 @@ nav {
   z-index: 1;
   justify-content: space-between;
   align-items: center;
-}
-
-nav .logo {
-  width: 250px;
-  margin-right: auto;
-  cursor: pointer;
-}
-
-nav .inviteModalButton {
-  padding: 10px 20px;
-  font-size: calc(12px + 0.3vw);
-  background-color: var(--secondaryColor);
-  color: var(--primaryColor);
-  border-radius: 2px;
-}
-
-nav .inviteModalButton:hover {
-  background-color: var(--hoverColor);
-  color: var(--secondaryColor);
-}
-
-/* only desktop Nav styling */
-nav .navDesktop {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-}
-
-nav .navDesktop ul {
-  padding-left: 30px;
-  padding-right: 10px;
-  /* set margin auto to align the nav items,for left alignment use margin-left: auto,
-    for right alignment use margin-right: auto and for center simply margin: auto.*/
-  margin: auto;
-}
-
-/* Mobile navbar styling */
-nav .navMobile {
-  position: fixed;
-  display: block;
-  top: 0px;
-  right: 0px;
-  width: 45%;
-  z-index: 1;
-  background-color: var(--primaryColor);
-  transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-
-nav .navMobile ul {
-  display: flex;
-  z-index: 2;
-  align-items: center;
-  position: fixed;
-  justify-content: center;
-  flex-direction: column;
-  width: 100%;
-  height: 100vh;
-  list-style-type: none;
-  background-color: var(--primaryColor);
-}
-
-nav .navMobile ul li {
-  padding: 20px;
-}
-
-/* to hide and show side navbar in mobile */
-.hideSideNavbar {
-  opacity: 0;
-  transform: translateX(100vw);
-}
-
-.showSideNavbar {
-  opacity: 1;
-  transform: translateX(0vw);
-}
-
-/* Hamburger mobile button styling and animation */
-nav .navMobileButton {
-  z-index: 2;
-  background-color: unset;
-  border-radius: 2px;
-}
-
-.hamburgerMenuOpen,
-.hamburgerMenuClose {
-  display: inline-block;
-  width: 20px;
-  height: 5px;
-  transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-
-.hamburgerMenuOpen {
-  background-color: var(--secondaryColor);
-}
-
-.hamburgerMenuClose {
-  transform: translateX(-50px);
-  background: transparent;
-}
-
-.hamburgerMenuOpen::before,
-.hamburgerMenuOpen::after,
-.hamburgerMenuClose::before,
-.hamburgerMenuClose::after {
-  position: absolute;
-  content: "";
-  background-color: var(--secondaryColor);
-  width: 30px;
-  height: 5px;
-  transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-
-.hamburgerMenuOpen::before {
-  transform: translate(-20px, -10px);
-}
-
-.hamburgerMenuOpen::after {
-  transform: translate(-20px, 10px);
-}
-
-.hamburgerMenuClose::before {
-  transform: rotate(45deg) translate(35px, -35px);
-}
-
-.hamburgerMenuClose::after {
-  transform: rotate(-45deg) translate(35px, 35px);
 }
 
 /* footer styling */
