@@ -13,18 +13,6 @@ const Footer = () => {
       <div className={styles.footerLogo}>
         <SVGIcon name="photosnap" fill={'#fff'} />
       </div>
-      <ul className={styles.footerNav}>
-        <li><Link href="/">HOME</Link></li>
-        <li><Link href="/stories">STORIES</Link></li>
-        <li><Link href="/features">FEATURES</Link></li>
-        <li><Link href="/pricing">PRICING</Link></li>
-      </ul>
-      <button className={styles.footerInviteButton}>
-        <span>GET AN INVITE</span>
-        <div className="arrow">
-          <SVGIcon name="arrow" fill={'#000'} />
-        </div>
-      </button>
       <div className={styles.outLinks}>
         <Link href={portfolioLink}>
           <a target="_blank" rel="noopener noreferrer">
@@ -42,6 +30,18 @@ const Footer = () => {
           </a>
         </Link>
       </div>
+      <ul className={styles.footerNav}>
+        <li><Link href="/">HOME</Link></li>
+        <li><Link href="/stories">STORIES</Link></li>
+        <li><Link href="/features">FEATURES</Link></li>
+        <li><Link href="/pricing">PRICING</Link></li>
+      </ul>
+      <button className={styles.footerInviteButton}>
+        <span>GET AN INVITE</span>
+        <div className="arrow">
+          <SVGIcon name="arrow" fill={'#000'} />
+        </div>
+      </button>
       <div className={styles.copyright}>
         <h3>Copyright 2022. All Rights Reserved.</h3>
       </div>
