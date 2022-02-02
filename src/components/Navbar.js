@@ -27,13 +27,13 @@ const Navbar = () => {
 	return (
 		<header>
 			<nav>
-				<div className={styles.logo}>
+				{/* <div> */}
 					<Link href="/">
-						<a style={{width: 0}}>
-							<SVGIcon name="photosnap" fill={'#000'} width={'200px'} />
+						<a>
+							<SVGIcon className={styles.logo} name="photosnap" fill={'#000'} width={'200px'} />
 						</a>
 					</Link>
-				</div>
+				{/* </div> */}
 				{isMd ?
 					(
 						<div className={styles.navDesktop}>
@@ -47,9 +47,9 @@ const Navbar = () => {
 					)
 					:
 					<>
-						<button className={styles.navMobileButton} onClick={() => setShowDropdown(b => !b)}>
-							<div className={showDropdown ? styles.hamburgerMenuClose : styles.hamburgerMenuOpen}></div>
-						</button>
+						{/* <button className={styles.navMobileButton} onClick={() => setShowDropdown(b => !b)}> */}
+							<div className={showDropdown ? styles.hamburgerMenuClose : styles.hamburgerMenuOpen} onClick={() => setShowDropdown(b => !b)}></div>
+						{/* </button> */}
 						<div className={`${styles.navMobile} ${showDropdown ? styles.showSideNavbar : styles.hideSideNavbar}`} ref={dropdown}>
 							<ul>
 								<li><Link href="/stories">STORIES</Link></li>
