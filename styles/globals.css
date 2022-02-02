@@ -16,6 +16,26 @@
   margin: 0;
 }
 
+/* styling for scroll-bar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  background: none;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--secondaryColor);
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #494949;
+}
+
+html {
+  scroll-behavior: smooth;
+}
 body {
   background-color: var(--primaryColor);
 }
@@ -38,12 +58,11 @@ header {
   width: 100%;
   top: 0;
   z-index: 1;
-  padding: 10px 5vw;
+  padding: 10px 4vw;
   border-bottom: 1px solid #ddd;
 }
 
 nav a {
-  padding: 0 12px;
   font-size: calc(12px + 0.5vw);
   color: var(--secondaryColor);
   font-family: var(--fontHead);
