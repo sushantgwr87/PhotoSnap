@@ -16,7 +16,7 @@ const Footer = () => {
       <div className={styles.outLinks}>
         <Link href={portfolioLink}>
           <a target="_blank" rel="noopener noreferrer">
-            <SVGIcon name="sgwr" fill={'#fff'} width={'40px'} />
+            <SVGIcon name="sgwr" fill={'#000'} width={'38px'} />
           </a>
         </Link>
         <Link href={githubLink}>
