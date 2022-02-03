@@ -63,7 +63,6 @@ header {
 }
 
 nav a {
-  font-size: calc(12px + 0.5vw);
   color: var(--secondaryColor);
   font-family: var(--fontHead);
   font-weight: bold;
