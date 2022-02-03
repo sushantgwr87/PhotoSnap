@@ -9,6 +9,8 @@
     background-color: var(--secondaryColor);
     padding: 40px 20px 20px 20px;
     font-family: var(--fontHead);
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 .footer_Logo {
     grid-area: Footer_Logo;
@@ -32,6 +34,8 @@
     margin-left: auto;
     padding: 15px 20px;
     align-items: center;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 .footer_outLinks {
     grid-area: Footer_OutLinks;
@@ -44,6 +48,7 @@
 }
 .footer_copyright {
     grid-area: Footer_Copyright;
+    text-transform: initial;
     font-family: var(--fontBody);
     color: var(--greyColor);
     font-weight: lighter;
