@@ -10,10 +10,10 @@ const Footer = () => {
 
   return (
     <footer className={styles.footer}>
-      <div className={styles.footerLogo}>
+      <div className={styles.footer_Logo}>
         <SVGIcon name="photosnap" fill={'#fff'} />
       </div>
-      <div className={styles.outLinks}>
+      <div className={styles.footer_outLinks}>
         <Link href={portfolioLink}>
           <a target="_blank" rel="noopener noreferrer">
             <SVGIcon name="sgwr" fill={'#000'} width={'38px'} />
@@ -30,19 +30,19 @@ const Footer = () => {
           </a>
         </Link>
       </div>
-      <ul className={styles.footerNav}>
+      <ul className={styles.footer_navbar}>
         <li><Link href="/">HOME</Link></li>
         <li><Link href="/stories">STORIES</Link></li>
         <li><Link href="/features">FEATURES</Link></li>
         <li><Link href="/pricing">PRICING</Link></li>
       </ul>
-      <button className={styles.footerInviteButton}>
+      <button className={styles.footer_modal___btn}>
         <span>GET AN INVITE</span>
         <div className="arrow">
           <SVGIcon name="arrow" fill={'#000'} />
         </div>
       </button>
-      <div className={styles.copyright}>
+      <div className={styles.footer_copyright}>
         <h3>Copyright 2022. All Rights Reserved.</h3>
       </div>
     </footer>
