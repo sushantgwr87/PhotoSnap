@@ -3,47 +3,47 @@
     align-items: center;
     justify-content: space-around;
     grid-template-areas:
-        '. Logo FooterNav FooterNav . . FooterInviteButton .'
-        '. OutLinks FooterNav FooterNav . . copyright .';
+        '. Footer_Logo Footer_Navbar Footer_Navbar . . Footer_Modal___Btn .'
+        '. Footer_OutLinks Footer_Navbar Footer_Navbar . . Footer_Copyright .';
     grid-gap: 20px 20px;
     background-color: var(--secondaryColor);
     padding: 40px 20px 20px 20px;
     font-family: var(--fontHead);
 }
-.footerLogo {
-    grid-area: Logo;
+.footer_Logo {
+    grid-area: Footer_Logo;
     padding: 10px 0;
     width: 200px;
 }
-.footerNav {
-    grid-area: FooterNav;
+.footer_navbar {
+    grid-area: Footer_Navbar;
     margin-right: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     list-style-type: none;
 }
-.footerNav li {
+.footer_navbar li {
     padding: 10px 0;
 }
-.footerInviteButton {
-    grid-area: FooterInviteButton;
+.footer_modal___btn {
+    grid-area: Footer_Modal___Btn;
     font-weight: bold;
     margin-left: auto;
     padding: 15px 20px;
     align-items: center;
 }
-.outLinks {
-    grid-area: OutLinks;
+.footer_outLinks {
+    grid-area: Footer_OutLinks;
     text-align: left;
     margin-right: auto;
 }
-.outLinks a {
+.footer_outLinks a {
     display: inline-block;
     padding: 10px;
 }
-.copyright {
-    grid-area: copyright;
+.footer_copyright {
+    grid-area: Footer_Copyright;
     font-family: var(--fontBody);
     color: var(--greyColor);
     font-weight: lighter;
@@ -58,17 +58,17 @@
         align-items: center;
         justify-content: space-around;
         grid-template-areas:
-            '. Logo . . FooterInviteButton FooterInviteButton FooterInviteButton .'
-            '. FooterNav FooterNav . . . . .'
-            '. OutLinks copyright copyright copyright copyright copyright .';
+            '. Footer_Logo . . Footer_Modal___Btn Footer_Modal___Btn Footer_Modal___Btn .'
+            '. Footer_Navbar Footer_Navbar . . . . .'
+            '. Footer_OutLinks Footer_Copyright Footer_Copyright Footer_Copyright Footer_Copyright Footer_Copyright .';
         grid-gap: 20px 0px;
         background-color: var(--secondaryColor);
         padding: 40px 20px 20px 20px;
     }
-    .footerNav {
+    .footer_navbar {
         flex-direction: row;
     }
-    .footerNav li {
+    .footer_navbar li {
         padding: 5px 10px;
     }
 }
@@ -83,23 +83,20 @@
         grid-gap: 0;
         padding: 40px 0;
     }
-    /* .footerLogo {
-        padding-top: 30px;
-    } */
-    .footerNav {
+    .footer_navbar {
         align-items: center;
         flex-direction: column;
         margin: auto;
         padding-top: 30px;
         padding-bottom: 60px;
     }
-    .footerNav li {
+    .footer_navbar li {
         padding: 10px;
     }
-    .footerInviteButton, .outLinks, .copyright {
+    .footer_modal___btn, .footer_outLinks, .footer_copyright {
         margin: auto;
     }
-    .copyright {
+    .footer_copyright {
         padding-top: 40px;
         text-align: center;
     }
