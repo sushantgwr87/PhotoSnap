@@ -31,13 +31,13 @@ const Footer = () => {
         </Link>
       </div>
       <ul className={styles.footer_navbar}>
-        <li><Link href="/">HOME</Link></li>
-        <li><Link href="/stories">STORIES</Link></li>
-        <li><Link href="/features">FEATURES</Link></li>
-        <li><Link href="/pricing">PRICING</Link></li>
+        <li><Link href="/">Home</Link></li>
+        <li><Link href="/stories">Stories</Link></li>
+        <li><Link href="/features">Features</Link></li>
+        <li><Link href="/pricing">Pricing</Link></li>
       </ul>
       <button className={styles.footer_modal___btn}>
-        <span>GET AN INVITE</span>
+        <span>Get an invite</span>
         <div className="arrow">
           <SVGIcon name="arrow" fill={'#000'} />
         </div>
