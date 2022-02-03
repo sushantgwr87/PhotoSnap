@@ -27,8 +27,8 @@ const Navbar = () => {
 	return (
 		<header>
 			<nav>
-				<Link href="/">
-					<a>
+				<Link href="/" passHref>
+					<a style={{position: 'absolute'}}>
 						<SVGIcon className={styles.nav_logo} name="photosnap" fill={'#000'} width={'250px'} />
 					</a>
 				</Link>
@@ -36,22 +36,24 @@ const Navbar = () => {
 					(
 						<div className={styles.nav_desktop}>
 							<ul>
-								<Link href="/stories">STORIES</Link>
-								<Link href="/features">FEATURES</Link>
-								<Link href="/pricing">PRICING</Link>
+								<Link href="/stories">Stories</Link>
+								<Link href="/features">Features</Link>
+								<Link href="/pricing">Pricing</Link>
 							</ul>
-							<button className={styles.nav_modal___btn}>GET AN INVITE</button>
+							<button className={styles.nav_modal___btn}>Get an invite</button>
 						</div>
 					)
 					:
 					<>
-						<div className={showDropdown ? styles.nav_mobile_menu___btn_close : styles.nav_mobile_menu___btn_open} onClick={() => setShowDropdown(b => !b)}></div>
+						{/* <div className={styles.nav_mobile_menu___btn}> */}
+							<div className={showDropdown ? styles.nav_mobile_menu___btn_close : styles.nav_mobile_menu___btn_open} onClick={() => setShowDropdown(b => !b)}></div>
+						{/* </div> */}
 						<div className={`${styles.nav_mobile} ${showDropdown ? styles.nav_mobile___show : styles.nav_mobile___hide}`} ref={dropdown}>
 							<ul>
-								<li><Link href="/stories">STORIES</Link></li>
-								<li><Link href="/features">FEATURES</Link></li>
-								<li><Link href="/pricing">PRICING</Link></li>
-								<li><button className={styles.nav_modal___btn}>GET IN INVITE</button></li>
+								<li><Link href="/stories">Stories</Link></li>
+								<li><Link href="/features">Features</Link></li>
+								<li><Link href="/pricing">Pricing</Link></li>
+								<li><button className={styles.nav_modal___btn}>Get an invite</button></li>
 							</ul>
 						</div>
 					</>
