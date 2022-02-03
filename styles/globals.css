@@ -5,13 +5,13 @@
   --secondaryColor: #141414;
   --greyColor: #7c7c7c;
   --hoverColor: #1cb7e6;
+  --buttonColor: #bdbdbd;
   --fontHead: 'Cinzel', serif;
   --fontBody: 'Raleway', sans-serif;
 }
 
 * {
   box-sizing: border-box;
-  letter-spacing: 2px;
   padding: 0;
   margin: 0;
 }
@@ -55,17 +55,21 @@ button {
 header {
   position: fixed;
   background-color: var(--primaryColor);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   width: 100%;
   top: 0;
   z-index: 1;
-  padding: 10px 4vw;
-  border-bottom: 1px solid #ddd;
+  height: 80px;
+  padding: 0 4vw;
 }
 
 nav a {
   color: var(--secondaryColor);
   font-family: var(--fontHead);
   font-weight: bold;
+  letter-spacing: 2px;
 }
 
 nav {
@@ -99,7 +103,7 @@ footer {
 /* main content styling */
 main {
   position: relative;
-  padding-top: 100px;
+  padding-top: 60px;
   padding-bottom: 50px;
 }
 
@@ -128,5 +132,57 @@ main {
 .arrow {
   display: inline-block;
   width: 28px;
-  margin-left: 10px;
+  margin-left: 20px;
+}
+
+/* index page stylings */
+.introduction_card {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(12,1fr);
+  align-items: center;
+  background-color: var(--secondaryColor);
+}
+
+.introduction_card_content {
+  display: flex;
+  grid-area: auto / 1 / auto / 6;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding: 10vw 50px 10vw 50px;
+  width: 100%;
+  color: var(--primaryColor);
+}
+
+.introduction_card_content h3 {
+  font-family: var(--fontHead);
+  font-size: calc(16px + 1vw);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.introduction_card_content p {
+  padding: 20px 0;
+  font-size: calc(10px + 0.3vw);
+  color: var(--greyColor);
+  font-family: var(--fontBody);
+}
+
+.introduction_card_content button {
+  font-family: var(--fontBody);
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding-top: 40px;
+  background-color: transparent;
+  color: var(--buttonColor);
+}
+
+.introduction_card_photo{
+  position: relative;
+  width: 100%;
+  display: block;
+  grid-area: auto / 6 / auto / 13;
+  height: 100%;
 }
