@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Image from "next/image";
 
 export default function PrivatePage(props) {
   const [image, setImage] = useState(null);
@@ -26,7 +27,7 @@ export default function PrivatePage(props) {
   return (
     <div>
       <div>
-        <img src={createObjectURL} />
+        <Image src={createObjectURL} alt="upload Image" />
         <h4>Select Image</h4>
         <input type="file" name="myImage" onChange={uploadToClient} />
         <button
