@@ -178,6 +178,9 @@
 
 @media only screen and (max-width: 350px) {
 
+  .nav_logo___link {
+    position: absolute;
+  }
   .nav_mobile_menu___btn_open,
   .nav_mobile_menu___btn_close {
     width: 15px;
