@@ -28,7 +28,7 @@ const Navbar = () => {
 		<header>
 			<nav>
 				<Link href="/" passHref>
-					<a style={{position: 'absolute'}}>
+					<a className={styles.nav_logo___link}>
 						<SVGIcon className={styles.nav_logo} name="photosnap" fill={'#000'} width={'250px'} />
 					</a>
 				</Link>
