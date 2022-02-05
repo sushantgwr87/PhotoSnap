@@ -1,4 +1,5 @@
 .footer {
+    position: relative;
     display: grid;
     align-items: center;
     justify-content: space-around;
