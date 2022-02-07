@@ -45,9 +45,7 @@ const Navbar = () => {
 					)
 					:
 					<>
-						{/* <div className={styles.nav_mobile_menu___btn}> */}
-							<div className={showDropdown ? styles.nav_mobile_menu___btn_close : styles.nav_mobile_menu___btn_open} onClick={() => setShowDropdown(b => !b)}></div>
-						{/* </div> */}
+						<div className={showDropdown ? styles.nav_mobile_menu___btn_close : styles.nav_mobile_menu___btn_open} onClick={() => setShowDropdown(b => !b)}></div>
 						<div className={`${styles.nav_mobile} ${showDropdown ? styles.nav_mobile___show : styles.nav_mobile___hide}`} ref={dropdown}>
 							<ul>
 								<li><Link href="/stories">Stories</Link></li>
