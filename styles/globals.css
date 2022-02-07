@@ -24,14 +24,17 @@
 ::-webkit-scrollbar {
   width: 5px;
 }
+
 /* Track */
 ::-webkit-scrollbar-track {
   background: none;
 }
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: var(--secondaryColor);
 }
+
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #494949;
@@ -40,6 +43,7 @@
 html {
   scroll-behavior: smooth;
 }
+
 body {
   background-color: var(--primaryColor);
 }
@@ -108,8 +112,9 @@ footer {
 main {
   position: relative;
   padding-top: 80px;
-  padding-bottom: 50px;
+  /* padding-bottom: 50px; */
 }
+
 /* 404 error page or not found page styling */
 .not-found {
   margin-bottom: 150px;
@@ -132,6 +137,7 @@ main {
   color: var(--text1);
 }
 
+/* svg arrow styling for invitebutton */
 .arrow {
   display: inline-block;
   width: 28px;
@@ -146,108 +152,84 @@ main {
   justify-content: center;
 }
 
-.introduction_card {
-  position: relative;
-  display: grid;
-  grid-template-columns: repeat(12,1fr);
-  align-items: center;
-  background-color: var(--primaryColor);
-}
-
-.introduction_card_content {
+/* feature page styling */
+.features {
   display: flex;
-  grid-area: 1 / 1 / 1 / 6;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: flex-start;
-  padding: 180px 5vw;
-  /* height: 85vh; */
+  flex-direction: row;
+  justify-content: center;
+  align-items: baseline;
+  flex-wrap: wrap;
+  width: 80%;
+  margin: auto;
+  padding: 8vw 0;
+}
+
+.feature {
+  display: inline-block;
+  flex: 1;
+  text-align: center;
+  margin: 0 30px;
+  width: 30%;
+  height: 100%;
+}
+
+.features_page {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: baseline;
+  flex-wrap: wrap;
+  width: 80%;
+  height: 100%;
+  margin: auto;
+  padding: 5vw 0;
+}
+.features_page___feature {
+  display: inline-block;
+  text-align: center;
+  flex: 30%;
+  padding: 5vw;
   width: 100%;
-  color: var(--secondaryColor);
+  height: 100%;
 }
 
-.introduction_card_content h3 {
+.feature h3,.features_page___feature h3 {
   font-family: var(--fontHead);
-  font-size: calc(16px + 1vw);
-  text-transform: uppercase;
-  letter-spacing: 2px;
+  font-size: calc(12px + 0.3vw);
+  padding-top: 30px;
+  padding-bottom: 20px;
 }
 
-.introduction_card_content p {
+.feature p, .features_page___feature p {
   font-family: var(--fontBody);
   font-size: calc(10px + 0.3vw);
-  padding: 20px 0;
   color: var(--greyColor);
 }
 
-.introduction_card_content button {
-  font-family: var(--fontBody);
-  font-weight: bold;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-top: 30px;
-  padding: 10px 0;
-  background-color: transparent;
-  color: var(--secondaryColor);
-}
-
-.introduction_card_photo {
-  position: relative;
-  width: 100%;
-  display: block;
-  grid-area: 1 / 6 / 1 / -1;
-  height: 100%;
-}
-
-.introduction_card_photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.introduction .introduction_card:first-child {
-  background-color: var(--secondaryColor);
-}
-.introduction_card:first-child .introduction_card_content h3 {
-  color: var(--primaryColor);
-}
-.introduction .introduction_card:first-child .introduction_card_content button {
-  color: var(--buttonColor);
-}
-.introduction .introduction_card:nth-child(2) .introduction_card_content {
-  grid-area: 1 / 8 / 1 / -1;
-}
-.introduction .introduction_card:nth-child(2) .introduction_card_photo {
-  grid-area: 1 / 1 / 1 / 8;
-}
-
-@media only screen and (max-width: 700px) {
-  .introduction_card_content {
-    grid-area: 1 / 1 / 1 / 8;
+@media only screen and (max-width: 770px) {
+  .features {
+    flex-direction: column;
+    gap: 8vw 0;
   }
-  .introduction_card_photo {
-    grid-area: 1 / 8 / 1 / -1;
-  }
-  .introduction .introduction_card:nth-child(2) .introduction_card_content {
-    grid-area: 1 / 6 / 1 / -1;
-  }
-  .introduction .introduction_card:nth-child(2) .introduction_card_photo {
-    grid-area: 1 / 1 / 1 / 6;
+  .feature {
+    width: 70%;
+    margin: auto;
   }
 }
 
 @media only screen and (max-width: 600px) {
-  .introduction_card {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
+  .features {
+    gap: 0;
+  }
+  .feature {
     width: 100%;
+    margin: 30px 0;
   }
-  .introduction_card_content {
-    padding: 70px 5vw;
+  .features_page {
+    padding: 50px 0;
   }
-  .introduction_card_photo {
-    display: block;
+  .features_page___feature {
+    padding: 30px 10px;
+    flex: 100%;
   }
 }
