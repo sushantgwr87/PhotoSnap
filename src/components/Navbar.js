@@ -3,9 +3,11 @@ import Link from 'next/link';
 import useBreakpoints from '../customHook/useBreakpoints';
 import styles from '../../styles/Navbar.module.css';
 import SVGIcon from './SVGIcon';
+import Modal from '../components/Modal';
 
 const Navbar = () => {
 	const { isMd } = useBreakpoints();
+	const [show, setShow] = useState(false);
 
 	const [showDropdown, setShowDropdown] = useState(false);
 	// create a React ref for the dropdown element
@@ -40,7 +42,8 @@ const Navbar = () => {
 								<Link href="/features">Features</Link>
 								<Link href="/pricing">Pricing</Link>
 							</ul>
-							<button className={styles.nav_modal___btn}>Get an invite</button>
+							<button className={styles.nav_modal___btn} onClick={() => setShow(true)}>Get an invite</button>
+							<Modal onClose={() => setShow(false)} show={show} />
 						</div>
 					)
 					:
