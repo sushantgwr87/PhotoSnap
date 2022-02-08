@@ -83,8 +83,8 @@
   .nav_mobile {
     width: 65%;
   }
-  .nav_logo {
-    padding-right: 100px;
+  .nav_logo___link {
+    width: 60%;
   }
 }
 
@@ -165,22 +165,15 @@
 }
 
 .nav_mobile_menu___btn_close::before {
-  /* transform: rotate(45deg) translate(15px, -15px); */
   transform: rotate(-45deg) translate(35px, 35px);
-  /* transform: rotate(45deg); */
 }
 
 .nav_mobile_menu___btn_close::after {
-  /* transform: rotate(-45deg) translate(15px, 15px); */
   transform: rotate(45deg) translate(35px, -35px);
-  /* transform: rotate(-45deg); */
 }
 
 @media only screen and (max-width: 350px) {
 
-  .nav_logo___link {
-    position: absolute;
-  }
   .nav_mobile_menu___btn_open,
   .nav_mobile_menu___btn_close {
     width: 15px;
