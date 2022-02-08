@@ -1,4 +1,5 @@
 import '../styles/globals.css'
+import '../styles/pricing.css';
 import Layout from '../src/components/Layout'
 import Head from 'next/head';
 
