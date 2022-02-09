@@ -1,12 +1,15 @@
-import React from 'react';
+import React,{useState} from 'react';
 import Link from 'next/link';
 import styles from '../../styles/Footer.module.css';
 import SVGIcon from '../../src/components/SVGIcon';
+import Modal from '../components/Modal';
 
 const Footer = () => {
   const portfolioLink = "https://sushantgangwar.netlify.app/";
   const githubLink = "https://github.com/sushantgwr87";
   const linkedinLink = "https://www.linkedin.com/in/sushant-gangwar/";
+
+  const [modalShow, setModalShow] = useState(false);
 
   return (
     <footer className={styles.footer}>
@@ -36,12 +39,13 @@ const Footer = () => {
         <li><Link href="/features">Features</Link></li>
         <li><Link href="/pricing">Pricing</Link></li>
       </ul>
-      <button className={styles.footer_modal___btn}>
+        <button className={styles.footer_modal___btn} onClick={() => setModalShow(true)}>
         <span>Get an invite</span>
         <div className="arrow">
           <SVGIcon name="arrow" fill={'#000'} />
         </div>
       </button>
+      <Modal onClose={() => setModalShow(false)} show={modalShow} />
       <div className={styles.footer_copyright}>
         <h3>Copyright 2022. All Rights Reserved.</h3>
       </div>
