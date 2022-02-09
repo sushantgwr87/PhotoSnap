@@ -7,21 +7,33 @@ import Modal from '../components/Modal';
 
 const Navbar = () => {
 	const { isMd } = useBreakpoints();
-	const [show, setShow] = useState(false);
+	const [modalShow, setModalShow] = useState(false);
 
 	const [showDropdown, setShowDropdown] = useState(false);
+
 	// create a React ref for the dropdown element
 	const dropdown = useRef(null);
+
+	const closeNav = () => {
+		setShowDropdown(false)
+	}
+
+	const handleModalNav = () => {
+		setShowDropdown(!showDropdown);
+		setTimeout(()=>setModalShow(true), 500);
+	}
+
+	function handleClick(event) {
+		if (dropdown.current && !dropdown.current.contains(event.target)) {
+			setShowDropdown(false);
+		}
+	}
 
 	useEffect(() => {
 		// only add the event listener when the dropdown is opened
 		if (!showDropdown) return;
-		function handleClick(event) {
-			if (dropdown.current && !dropdown.current.contains(event.target)) {
-				setShowDropdown(false);
-			}
-		}
-		window.addEventListener("click", handleClick);
+		if (showDropdown)
+			window.addEventListener("click", handleClick);
 		// clean up
 		return () => window.removeEventListener("click", handleClick);
 	}, [showDropdown]);
@@ -42,19 +54,34 @@ const Navbar = () => {
 								<Link href="/features">Features</Link>
 								<Link href="/pricing">Pricing</Link>
 							</ul>
-							<button className={styles.nav_modal___btn} onClick={() => setShow(true)}>Get an invite</button>
-							<Modal onClose={() => setShow(false)} show={show} />
+							<button className={styles.nav_modal___btn} onClick={() => setModalShow(true)}>Get an invite</button>
+							<Modal onClose={() => setModalShow(false)} show={modalShow} />
 						</div>
 					)
 					:
 					<>
-						<div className={showDropdown ? styles.nav_mobile_menu___btn_close : styles.nav_mobile_menu___btn_open} onClick={() => setShowDropdown(b => !b)}></div>
+						<div className={showDropdown ? styles.nav_mobile_menu___btn_close : styles.nav_mobile_menu___btn_open} onClick={() => setShowDropdown(!showDropdown)}></div>
 						<div className={`${styles.nav_mobile} ${showDropdown ? styles.nav_mobile___show : styles.nav_mobile___hide}`} ref={dropdown}>
 							<ul>
-								<li><Link href="/stories">Stories</Link></li>
-								<li><Link href="/features">Features</Link></li>
-								<li><Link href="/pricing">Pricing</Link></li>
-								<li><button className={styles.nav_modal___btn}>Get an invite</button></li>
+								<li>
+									<Link href="/stories">
+										<a onClick={closeNav}>Stories</a>
+									</Link>
+								</li>
+								<li>
+									<Link href="/features">
+										<a onClick={closeNav}>Features</a>
+									</Link>
+								</li>
+								<li>
+									<Link href="/pricing">
+										<a onClick={closeNav}>Pricing</a>
+									</Link>
+								</li>
+								<li>
+									<button className={styles.nav_modal___btn} onClick={handleModalNav}>Get an invite</button>
+									<Modal onClose={() => setModalShow(false)} show={modalShow} />
+								</li>
 							</ul>
 						</div>
 					</>
