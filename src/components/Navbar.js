@@ -20,7 +20,7 @@ const Navbar = () => {
 
 	const handleModalNav = () => {
 		setShowDropdown(!showDropdown);
-		setTimeout(()=>setModalShow(true), 500);
+		setModalShow(true);
 	}
 
 	function handleClick(event) {
