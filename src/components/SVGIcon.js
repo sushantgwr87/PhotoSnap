@@ -75,8 +75,8 @@ const getPath = (name, props) => {
     case "sgwr":
       return (
         <>
-          <circle className="cls-1" cx="150" cy="150" fill="#fff" r="150" />
-          <g {...props} transform="translate(-529 -191)">
+          <circle cx="150" cy="150" fill={props.secondaryfill} r="150" />
+          <g fill={props.fill} transform="translate(-529 -191)">
             <path d="M740.2 326.9c-.1 1.2-.2 2.3-.3 4l5.1-.4c1.6-7.7 3.1-14.9 4.7-22.8h-.2l-9.3 13.8a48.3 48.3 0 0 1 0 5.4z" />
             <path d="M693.7 358.4a54.6 54.6 0 0 1-2.2-25.1c2.9-22.6 17.3-33.4 37.3-28.2 6.7 1.7 9.3 3.9 9.8 9.5l9.2-13.9c-6.6-1.3-13-2.8-19.4-3.7-25.3-3.6-44 12.5-47.6 40.5-.4 3.1-2.3 24.4 10.1 36.4a35.1 35.1 0 0 0 5.5 4.4l5-7.6a30.1 30.1 0 0 1-7.7-12.3z" />
             <path d="M746 355.7a11.1 11.1 0 0 1 2.2-5.2 10.3 10.3 0 0 1 2.2-2.1l-.9-2.3c-4.1.1-8.6.1-13.2-.2s-7.8-.5-11.4-.9a23.5 23.5 0 0 1-.3 3.4 15.6 15.6 0 0 1-1.2 3.5c3.8-.2 6.9.3 9.2.3s5.7 2.1 5.6 6.4-.2 9.8-.7 14.6a6 6 0 0 1-2.4 3.8c-10 5.6-21 4-28.8-3.1l-4.9 7.6a34.5 34.5 0 0 0 10.1 4.2 46.1 46.1 0 0 0 6.8.7c8 .5 13.3-.8 24-3.5a3.8 3.8 0 0 0 2.4-1.3 4 4 0 0 0 .8-1.8 68.5 68.5 0 0 1-.6-8.1 78.3 78.3 0 0 1 0-8.5 42.5 42.5 0 0 1 1.1-7.5z" />
@@ -284,6 +284,7 @@ const SVGIcon = ({
   name = "",
   style = {},
   fill = "#141414",
+  secondaryfill="#fff",
   viewBox = "",
   width = "100%",
   className = "",
@@ -298,7 +299,7 @@ const SVGIcon = ({
     viewBox={viewBox || getViewBox(name)}
     xmlnsXlink="http://www.w3.org/1999/xlink"
   >
-    {getPath(name, { fill })}
+    {getPath(name, { fill, secondaryfill })}
   </svg>
 );
 
