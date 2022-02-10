@@ -83,3 +83,39 @@ const Home = () => {
 };
 
 export default Home;
+// import React from "react";
+// import Link from "next/link";
+// import { signIn, signOut, useSession } from "next-auth/react";
+
+// export default function Page() {
+//   // const [session, loading] = useSession();
+//   const { data: session, status } = useSession()
+// const loading = status === "loading";
+// const authenticated = status === "authenticated";
+
+//   if (loading) {
+//     return <p>Loading...</p>;
+//   }
+
+//   return (
+//     <>
+//       {!authenticated && (
+//         <>
+//           Not signed in <br />
+//           <button onClick={signIn}>Sign in</button>
+//         </>
+//       )}
+//       {authenticated && (
+//         <>
+//           Signed in as {session.user.name} <br />
+//           <button onClick={signOut}>Sign out</button>
+//         </>
+//       )}
+//       <div>
+//         <Link href="/private">
+//           <a>Go to private page</a>
+//         </Link>
+//       </div>
+//     </>
+//   );
+// }
