@@ -21,10 +21,9 @@ const Modal = ({ show, onClose }) => {
     return () => document.body.removeEventListener("keydown", closeOnEscapeKeyDown);
   }, []);
 
-  const modalContent = 
-  (hasTransitionedIn ||show ? (
-      <div className={`${styles.modal_overlay} ${hasTransitionedIn && show ? styles.modal_show: styles.modal_hide}`} onClick={onClose}>
-      <div className={`${styles.modal} ${hasTransitionedIn && show ? styles.modal_show: styles.modal_hide}`} onClick={e => e.stopPropagation()}>
+  const modalContent = hasTransitionedIn || show ? (
+    <div className={`${styles.modal_overlay} ${hasTransitionedIn && show ? styles.modal_show : styles.modal_hide}`} onClick={onClose}>
+      <div className={`${styles.modal} ${hasTransitionedIn && show ? styles.modal_show : styles.modal_hide}`} onClick={e => e.stopPropagation()}>
         <div className={styles.modal_header}>
           <SVGIcon name="sgwr" secondaryfill="#07b053" width="30%" />
           <h3>Admin Login</h3>
@@ -44,7 +43,7 @@ const Modal = ({ show, onClose }) => {
         </div>
       </div>
     </div>
-  ) : null);
+  ) : null
 
   if (isBrowser) {
     return ReactDOM.createPortal(
