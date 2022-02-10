@@ -2,10 +2,12 @@ import '../styles/globals.css'
 import '../styles/pricing.css';
 import Layout from '../src/components/Layout'
 import Head from 'next/head';
+import { SessionProvider } from "next-auth/react"
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component,
+  pageProps: { session, ...pageProps }, }) {
   return (
-    <>
+    <SessionProvider session={session} refetchInterval={5 * 60}>
       <Head>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta charSet="utf-8" />
@@ -19,8 +21,8 @@ function MyApp({ Component, pageProps }) {
       <Layout>
         <Component {...pageProps} />
       </Layout>
-    </>
+      </SessionProvider>
   );
 }
 
-export default MyApp
+export default MyApp;
