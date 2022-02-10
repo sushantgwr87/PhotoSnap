@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Card from '../src/components/card';
 import card_Image from '../public/assets/pricing.jpg';
-import useBreakpoints from '../src/customHook/useBreakpoints';
 
 const pricingCardData = {
     head: "Pricing",
@@ -36,7 +35,6 @@ const yearlyPrice = [
         type: "V.I.P",
         body: "Enterprise services and features with pre-sets and toolkits for advance editing services are provided.",
         price: 1340,
-        // (number).toFixed(2); for decimal points in number
     },
 ]
 
@@ -47,8 +45,6 @@ const Pricing = () => {
     const handleCheck = () => {
         setCheck(!check);
     }
-
-    const { isXs } = useBreakpoints();
 
     return (
         <>
