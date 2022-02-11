@@ -4,39 +4,73 @@ import useBreakpoints from '../customHook/useBreakpoints';
 import styles from '../../styles/Navbar.module.css';
 import SVGIcon from './SVGIcon';
 import Modal from '../components/Modal';
+import useMountTransition from '../customHook/useMountTransition';
+import { signOut, useSession } from "next-auth/react";
 
 const Navbar = () => {
 	const { isMd } = useBreakpoints();
+	
+	const { data: session, status } = useSession();
+	const loading = status === "loading";
+	const loginAuth = status === "authenticated";
+	const hasTransitionedIn = useMountTransition(loginAuth, 1000);
+	
 	const [modalShow, setModalShow] = useState(false);
 
-	const [showDropdown, setShowDropdown] = useState(false);
+	const [showSidebar, setShowSidebar] = useState(false);
 
-	// create a React ref for the dropdown element
-	const dropdown = useRef(null);
+	// create a React ref for the sidebar element
+	const sidebar = useRef(null);
 
 	const closeNav = () => {
-		setShowDropdown(false)
+		setShowSidebar(false)
 	}
 
 	const handleModalNav = () => {
-		setShowDropdown(!showDropdown);
+		setShowSidebar(!showSidebar);
 		setModalShow(true);
 	}
 
 	function handleClick(event) {
-		if (dropdown.current && !dropdown.current.contains(event.target)) {
-			setShowDropdown(false);
+		if (sidebar.current && !sidebar.current.contains(event.target)) {
+			setShowSidebar(false);
 		}
 	}
 
 	useEffect(() => {
-		// only add the event listener when the dropdown is opened
-		if (!showDropdown) return;
-		if (showDropdown)
+		// only add the event listener when the sidebar is opened
+		if (!showSidebar) return;
+		if (showSidebar)
 			window.addEventListener("click", handleClick);
 		// clean up
 		return () => window.removeEventListener("click", handleClick);
-	}, [showDropdown]);
+	}, [showSidebar]);
+
+	const [showSubmenu, setShowSubmenu] = useState(false);
+
+	const handleSubmenu = () => {setShowSubmenu(!showSubmenu)};
+
+	const handleLogout = () => {
+		signOut({ redirect: false });
+		setShowSubmenu(false);
+	};
+
+	const logged_menu =(
+		hasTransitionedIn && loginAuth ?
+			<div className={styles.profile_menu}>
+				<button className={styles.profile_btn} onClick={handleSubmenu}>{session.user.name}</button>
+				<div className={`${styles.sub_menu} ${showSubmenu ? styles.sub_menu___show : styles.sub_menu___hide}`}>
+					<span className={styles.sub_menu_item}><span>Admin {session.user.name}</span></span>
+					<span className={styles.sub_menu_item}>
+						<button className={styles.logout_btn} onClick={handleLogout}>Logout</button>
+						</span>
+				</div>
+			</div> :
+			<>
+				<button className={styles.nav_modal___btn} onClick={handleModalNav}>Get an invite</button>
+				<Modal onClose={() => setModalShow(false)} show={modalShow} />
+			</>
+	)
 
 	return (
 		<header>
@@ -54,14 +88,13 @@ const Navbar = () => {
 								<Link href="/features">Features</Link>
 								<Link href="/pricing">Pricing</Link>
 							</ul>
-							<button className={styles.nav_modal___btn} onClick={() => setModalShow(true)}>Get an invite</button>
-							<Modal onClose={() => setModalShow(false)} show={modalShow} />
+							{logged_menu}
 						</div>
 					)
 					:
 					<>
-						<div className={showDropdown ? styles.nav_mobile_menu___btn_close : styles.nav_mobile_menu___btn_open} onClick={() => setShowDropdown(!showDropdown)}></div>
-						<div className={`${styles.nav_mobile} ${showDropdown ? styles.nav_mobile___show : styles.nav_mobile___hide}`} ref={dropdown}>
+						<div className={showSidebar ? styles.nav_mobile_menu___btn_close : styles.nav_mobile_menu___btn_open} onClick={() => setShowSidebar(!showSidebar)}></div>
+						<div className={`${styles.nav_mobile} ${showSidebar ? styles.nav_mobile___show : styles.nav_mobile___hide}`} ref={sidebar}>
 							<ul>
 								<li>
 									<Link href="/stories">
@@ -79,8 +112,7 @@ const Navbar = () => {
 									</Link>
 								</li>
 								<li>
-									<button className={styles.nav_modal___btn} onClick={handleModalNav}>Get an invite</button>
-									<Modal onClose={() => setModalShow(false)} show={modalShow} />
+									{logged_menu}
 								</li>
 							</ul>
 						</div>
