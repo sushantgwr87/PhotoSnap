@@ -10,12 +10,12 @@ export default NextAuth({
         CredentialsProvider({
             name: "Credentials",
             credentials: {
-                username: { label: "Username", type: "text", placeholder: "jsmith" },
+                username: { label: "Username", type: "text", placeholder: "Admin" },
                 password: { label: "Password", type: "password" },
             },
             async authorize(credentials, req) {
                 if (isCorrectCredentials(credentials)) {
-                    const user = { id: 1, name: "Admin" };
+                    const user = { id: 1, name: "SG" };
                     return user
                 }
                 return null
