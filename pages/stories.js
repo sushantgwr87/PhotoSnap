@@ -10,4 +10,6 @@ const Stories = () => {
     );
 };
 
+Stories.displayName = "Stories";
+
 export default Stories;
