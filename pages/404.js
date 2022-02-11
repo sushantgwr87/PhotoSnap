@@ -11,4 +11,6 @@ const NotFound = () => {
     );
 };
 
+NotFound.displayName = "Error"
+
 export default NotFound;
