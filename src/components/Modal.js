@@ -3,16 +3,36 @@ import ReactDOM from "react-dom";
 import SVGIcon from "./SVGIcon";
 import useMountTransition from "../customHook/useMountTransition";
 import styles from "../../styles/modal.module.css";
+import { signIn } from "next-auth/react";
 
 const Modal = ({ show, onClose }) => {
   const [isBrowser, setIsBrowser] = useState(false);
   const hasTransitionedIn = useMountTransition(show, 1000);
+
+  const [error, setError] = useState(false);
 
   const closeOnEscapeKeyDown = e => {
     if ((e.charCode || e.keyCode) === 27) {
       onClose();
     }
   };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(e.target.username.value);
+    console.log(e.target.password.value);
+    signIn("credentials", { redirect: false, username: e.target.username.value, password: e.target.password.value })
+      .then(({ ok, error }) => {
+        if (ok) {
+          setError(false);
+          onClose();
+          console.log("success");
+        } else {
+          setError(true);
+          console.log(error);
+        }
+      })
+  }
 
   useEffect(() => {
     setIsBrowser(true);
@@ -29,11 +49,12 @@ const Modal = ({ show, onClose }) => {
           <h3>Admin Login</h3>
         </div>
         <div className={styles.modal_body}>
-          <form className={styles.modal_body_form}>
+          <form method="post" onSubmit={handleSubmit} className={styles.modal_body_form}>
             <label>Username</label>
             <input className={styles.modal_body_form___input} type="text" placeholder="Enter Username" name="username" required />
             <label className={styles.modal_body_form___label}>Password</label>
             <input className={styles.modal_body_form___input} type="password" placeholder="Enter Password" name="password" required />
+            <p>{error && "Either username or password is incorrect"}</p>
             <button className={styles.modal_body_form___button} type="submit">Login</button>
           </form>
         </div>
