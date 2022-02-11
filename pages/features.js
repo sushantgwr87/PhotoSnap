@@ -72,4 +72,6 @@ const Features = () => {
     );
 };
 
+Features.displayName = "Features"
+
 export default Features;
