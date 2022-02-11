@@ -87,4 +87,6 @@ const Pricing = () => {
     );
 };
 
+Pricing.displayName = "Pricing"
+
 export default Pricing;
