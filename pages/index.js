@@ -1,9 +1,6 @@
 import React from 'react';
 import SVGIcon from '../src/components/SVGIcon';
-import cardImage1 from '../public/assets/adventure.jpg'
-import cardImage2 from '../public/assets/camera.jpg'
-import cardImage3 from '../public/assets/video.jpg'
-import HomeImageGrid from '../src/components/HomeImageGrid';
+import ImageGrid from '../src/components/ImageGrid';
 import Card from '../src/components/card';
 
 const featuredata = [
@@ -26,22 +23,45 @@ const featuredata = [
 
 const introductionData = [
   {
-    path: cardImage1,
+    path: '/assets/adventure.jpg',
     head: 'create and share your photo stories.',
     body: 'Photosnap is a platform for photographers and visual storytellers. We make it easy to share photos, tell stories and connect with others.',
     buttonText: 'Get an invite'
   },
   {
-    path: cardImage2,
+    path: '/assets/camera.jpg',
     head: 'Beautiful stories every time',
     body: 'We provide design templates to ensure your stories look terrific. Easily add photos, text and embed media from other networks, Then share your story with everyone',
     buttonText: 'View the Stories'
   },
   {
-    path: cardImage3,
+    path: '/assets/video.jpg',
     head: 'Designed for Everyone',
     body: 'Photosnap can help you create stories that resonates with your audience. Our tool is designed for photographers of all levels, brands, businesses you name it.',
     buttonText: 'View the Stories'
+  },
+]
+
+const griddata = [
+  {
+    title: "Mountain",
+    author: "Joseph D'zuza",
+    path: "/upload/adventure.jpg"
+  },
+  {
+    title: "River",
+    author: "Andrew Garfield",
+    path: "/upload/building_day2.jpg"
+  },
+  {
+    title: "Building",
+    author: "Tobey Megouer",
+    path: "/upload/ice.jpg"
+  },
+  {
+    title: "Wild Venture",
+    author: "Benjamin Franklin",
+    path: "/upload/tiger.jpg"
   },
 ]
 
@@ -64,7 +84,7 @@ const Home = () => {
         }
       </section>
       <section>
-        <HomeImageGrid />
+        <ImageGrid gridData={griddata} />
       </section>
       <section>
         <div className='features'>
