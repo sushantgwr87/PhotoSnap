@@ -55,7 +55,7 @@ const Navbar = () => {
 		setShowSubmenu(false);
 	};
 
-	const logged_menu =(
+	const logged_menu = (
 		hasTransitionedIn && loginAuth ?
 			<div className={styles.profile_menu}>
 				<button className={styles.profile_btn} onClick={handleSubmenu}>{session.user.name}</button>
