@@ -112,6 +112,10 @@
         padding: 70px 5vw;
     }
     .card_photo {
+        position: relative;
+        width: 100%;
+        /* height: 50vh; */
+        height: 50vh;
         display: block;
     }
 }
