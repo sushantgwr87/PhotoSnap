@@ -5,14 +5,21 @@
     align-items: center;
     flex-wrap: wrap;
     width: 100%;
+    background-color: rgb(0, 0, 0);
+}
+
+.image_grid___link {
+    position: relative;
+    display: block;
+    width: 25%;
 }
 
 .image_grid {
     position: relative;
     display: block;
     cursor: pointer;
-    width: 25%;
-    height: 600px;
+    width: 100%;
+    height: 550px;
 }
 
 .image_grid:hover {
@@ -68,7 +75,7 @@
     border: none;
 }
 
-.grid_content___read_button {
+.grid_content___read_btn {
     display: flex;
     flex-direction: row;
     background: none;
@@ -78,11 +85,11 @@
     color: var(--primaryColor);
 }
 
-.grid_content___read_button span {
+.grid_content___read_btn span {
     margin-right: auto;
 }
 
-.grid_content___read_button .arrow {
+.grid_content___read_btn .arrow {
     margin-left: auto;
 }
 
