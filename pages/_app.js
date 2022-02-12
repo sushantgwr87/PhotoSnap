@@ -1,5 +1,5 @@
 import '../styles/globals.css'
-import '../styles/pricing.css';
+import '../styles/pages.css';
 import Layout from '../src/components/Layout'
 import Head from 'next/head';
 import { SessionProvider } from "next-auth/react"
