@@ -10,7 +10,7 @@ const ImageGrid = ({ gridData }) => {
     <div className={styles.image_grid_container}>
       {gridData.map((value, index) => (
         <div className={styles.image_grid___link} key={index}>
-          <Link href="/story" passHref>
+          <Link href={'/story/'+value.id} passHref>
             <a>
               <div className={styles.image_grid} key={index}>
                 <div className={styles.grid_photo}>
@@ -20,14 +20,12 @@ const ImageGrid = ({ gridData }) => {
                   <h3>{value.title}</h3>
                   <p>by {value.author}</p>
                   <hr />
-                  <Link href="/story" passHref>
-                    <a className={styles.grid_content___read_btn}>
+                    <div className={styles.grid_content___read_btn}>
                       <span>Read Story</span>
                       <div className="arrow">
                         <SVGIcon name="arrow" fill={'#fff'} />
                       </div>
-                    </a>
-                  </Link>
+                    </div>
                 </div>
               </div>
             </a>
