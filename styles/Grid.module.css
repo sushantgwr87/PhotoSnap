@@ -94,13 +94,13 @@
 }
 
 @media only screen and (max-width: 1000px) {
-    .image_grid {
+    .image_grid___link {
         width: 50%;
     }
 }
 
 @media only screen and (max-width: 600px) {
-    .image_grid {
+    .image_grid___link {
         width: 100%;
     }
 }
