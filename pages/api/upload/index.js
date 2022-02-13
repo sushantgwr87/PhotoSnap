@@ -18,7 +18,7 @@ export default async function UploadImage(req, res) {
             if (err) return reject(err)
             // console.log(fields, files)
             var oldPath = files.file.filepath;
-            var newPath = `./public/${files.file.originalFilename}`;
+            var newPath = `./public/upload/${files.file.originalFilename}`;
             mv(oldPath, newPath, function(err) {});
             // console.log(files.file.filepath);
             // console.log(newPath);
