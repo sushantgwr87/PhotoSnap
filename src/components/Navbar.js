@@ -9,12 +9,12 @@ import { signOut, useSession } from "next-auth/react";
 
 const Navbar = () => {
 	const { isMd } = useBreakpoints();
-	
+
 	const { data: session, status } = useSession();
 	const loading = status === "loading";
 	const loginAuth = status === "authenticated";
 	const hasTransitionedIn = useMountTransition(loginAuth, 1000);
-	
+
 	const [modalShow, setModalShow] = useState(false);
 
 	const [showSidebar, setShowSidebar] = useState(false);
@@ -48,7 +48,7 @@ const Navbar = () => {
 
 	const [showSubmenu, setShowSubmenu] = useState(false);
 
-	const handleSubmenu = () => {setShowSubmenu(!showSubmenu)};
+	const handleSubmenu = () => { setShowSubmenu(!showSubmenu) };
 
 	const handleLogout = () => {
 		signOut({ redirect: false });
@@ -60,10 +60,12 @@ const Navbar = () => {
 			<div className={styles.profile_menu}>
 				<button className={styles.profile_btn} onClick={handleSubmenu}>{session.user.name}</button>
 				<div className={`${styles.sub_menu} ${showSubmenu ? styles.sub_menu___show : styles.sub_menu___hide}`}>
-					<span className={styles.sub_menu_item}><span>Admin {session.user.name}</span></span>
+					<span className={styles.sub_menu_item}>
+						<Link href='/uploadForm'>Upload</Link>
+					</span>
 					<span className={styles.sub_menu_item}>
 						<button className={styles.logout_btn} onClick={handleLogout}>Logout</button>
-						</span>
+					</span>
 				</div>
 			</div> :
 			<>
@@ -77,7 +79,7 @@ const Navbar = () => {
 			<nav>
 				<Link href="/" passHref>
 					<a className={styles.nav_logo___link}>
-						<SVGIcon className={styles.nav_logo} name="photosnap" fill={'#000'} width={'250px'} />
+						<SVGIcon className={styles.nav_logo} name="photosnap" fill={'#000'} />
 					</a>
 				</Link>
 				{isMd ?
