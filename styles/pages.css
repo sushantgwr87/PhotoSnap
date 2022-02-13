@@ -1,19 +1,84 @@
 /* ----------------------- Story page styling below ----------------------- */
+.story {
+    position: relative;
+    display: block;
+    background-color: #000000;
+    width: 100%;
+    height: 100%;
+}
+
+.story_image_container {
+    position: relative;
+    display: block;
+    height: 100%;
+    text-align: center;
+}
+
 .story_image {
     position: relative;
     display: block;
     width: 100%;
     height: 100vh;
+    filter: brightness(0.9);
+    -webkit-box-reflect: below 0px linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.3));
 }
-.story_image::after {
-    content:"";
-    background-image: inherit;
-    width:inherit;
-    height:100%;
+
+.story_image img {
+    object-fit: cover;
+}
+
+.story_arrow {
     position: absolute;
-    bottom:-100%;
-    transform:scaleY(-1)
+    width: 100%;
+    display: block;
+    margin: auto;
+    bottom: 20%;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-30px);
+    }
+    60% {
+      transform: translateY(-15px);
+    }
   }
+
+.story_content {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 8vw;
+    color: var(--primaryColor);
+    letter-spacing: 2px;
+}
+
+.story_content h3 {
+    font-family: var(--fontHead);
+    font-size: calc(22px + 1.5vw);
+    text-transform: uppercase;
+}
+
+.story_content span {
+    display: block;
+    font-family: var(--fontBody);
+    font-size: calc(14px + 0.3vw);
+    padding: 10px 0;
+}
+
+.story_content p  {
+    font-family: var(--fontBody);
+    font-size: calc(12px + 0.3vw);
+    padding-top: 30px;
+    text-align: justify;
+    text-justify: inter-word;
+    line-height: 20px;
+}
 
 /* ----------------------- Stories page styling below ----------------------- */
 .stories_featured {
@@ -403,7 +468,6 @@
     .toggle {
         height: 20px;
         width: 40px;
-        /* margin: auto 2vw; */
     }
 
     .pricing_cards {
@@ -434,4 +498,36 @@
         width: 100%;
         margin: auto;
     }
+}
+
+/* --------------------- Upload Form Styling ------------------------ */
+.upload {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100vh;
+    margin: auto;
+    text-align: center;
+    padding: 50px;
+}
+.upload_form_image {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 15vh;
+    margin: auto;
+}
+.upload_image {
+    width: 100%;
+    height: 100%;
+}
+.upload_content {
+    position: relative;
+    padding: 30px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    margin: auto;
+    /* align-items: center; */
 }
