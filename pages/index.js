@@ -65,7 +65,9 @@ const griddata = [
   },
 ]
 
-const Home = () => {
+const Home = ({snaps}) => {
+
+  // console.log(snaps);
 
   return (
     <>
@@ -105,3 +107,20 @@ const Home = () => {
 Home.displayName = "Home";
 
 export default Home;
+
+export async function getServerSideProps(ctx) {
+  // get the current environment
+  let dev = process.env.NODE_ENV !== 'production';
+  let { DEV_URL, PROD_URL } = process.env;
+
+  // request posts from api
+  let response = await fetch(`${dev ? DEV_URL : PROD_URL}/api/snaps/snap`);
+  // extract the data
+  let data = await response.json();
+
+  return {
+      props: {
+          snaps: data['message'],
+      },
+  };
+}
