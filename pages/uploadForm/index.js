@@ -1,8 +1,9 @@
 import { useState } from "react";
 import Image from "next/image";
 import addImage from "../../public/assets/addImage.png";
+import { setAlert } from "../../src/customHook/setAlert";
 
-const PrivatePage = () => {
+const UploadPage = () => {
   const [image, setImage] = useState(addImage);
   const [createObjectURL, setCreateObjectURL] = useState(addImage);
 
@@ -56,8 +57,8 @@ const PrivatePage = () => {
       //   console.log("done");
       //   // set the message
       // }
+      setAlert({title: "success", message:"Successfully uploaded"});
 
-      
     }
   };
 
@@ -126,4 +127,6 @@ const PrivatePage = () => {
   );
 }
 
-export default PrivatePage;
+UploadPage.displayName = "Upload";
+
+export default UploadPage;
