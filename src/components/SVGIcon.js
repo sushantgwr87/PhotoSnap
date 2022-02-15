@@ -5,6 +5,10 @@ const getViewBox = name => {
     case "arrow":
       return "0 0 168.08 59.92";
     case "github":
+    case "warning":
+    case "info":
+    case "error":
+    case "success":
       return "0 0 24 24";
     case "linkedin":
       return "0 0 32 32";
@@ -30,6 +34,34 @@ const getViewBox = name => {
 
 const getPath = (name, props) => {
   switch (name) {
+    case "success":
+      return (
+        <path
+          {...props}
+          d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+        />
+      );
+    case "warning":
+      return (
+        <path
+          {...props}
+          d="M23.641,18.485,14.732,1.643a3.093,3.093,0,0,0-5.464,0L.359,18.485A3.079,3.079,0,0,0,3.092,23H20.908a3.079,3.079,0,0,0,2.733-4.515ZM12,20a1.5,1.5,0,1,1,1.5-1.5A1.5,1.5,0,0,1,12,20Zm1-5H11l-.5-8h3Z"
+        />
+      );
+    case "error":
+      return (
+        <path
+          {...props}
+          d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"
+        />
+      );
+    case "info":
+      return (
+        <path
+          {...props}
+          d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"
+        />
+      );
     case "arrow":
       return (
         <path
