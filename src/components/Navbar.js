@@ -48,7 +48,25 @@ const Navbar = () => {
 
 	const [showSubmenu, setShowSubmenu] = useState(false);
 
-	const handleSubmenu = () => { setShowSubmenu(!showSubmenu) };
+	const subMenu = useRef(null);
+
+	const handleSubmenu = (event) => {
+		if (subMenu.current && !subMenu.current.contains(event.target)) {
+			setShowSubmenu(false);
+		}
+	};
+
+	useEffect(() => {
+		// only add the event listener when the subMenu is opened
+		if (!showSubmenu) return;
+		if (showSubmenu)
+			window.addEventListener("click", handleSubmenu);
+		// clean up
+		return () => window.removeEventListener("click", handleSubmenu);
+	}, [showSubmenu]);
+
+
+
 
 	const handleLogout = () => {
 		signOut({ redirect: false });
@@ -58,8 +76,8 @@ const Navbar = () => {
 	const logged_menu = (
 		hasTransitionedIn && loginAuth ?
 			<div className={styles.profile_menu}>
-				<button className={styles.profile_btn} onClick={handleSubmenu}>{session.user.name}</button>
-				<div className={`${styles.sub_menu} ${showSubmenu ? styles.sub_menu___show : styles.sub_menu___hide}`}>
+				<button className={styles.profile_btn} onClick={() => setShowSubmenu(!showSubmenu)}>{session.user.name}</button>
+				<div className={`${styles.sub_menu} ${showSubmenu ? styles.sub_menu___show : styles.sub_menu___hide}`} ref={subMenu}>
 					<span className={styles.sub_menu_item}>
 						<Link href='/uploadForm'>Upload</Link>
 					</span>
