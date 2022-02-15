@@ -225,10 +225,10 @@
 }
 
 .sub_menu.sub_menu___show {
-  display: flex;
+  opacity: 1;
 }
 .sub_menu.sub_menu___hide {
-  display: none;
+  opacity: 0;
 }
 
 /* media queries */
