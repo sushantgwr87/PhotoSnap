@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import addImage from "../../public/assets/addImage.png";
-import { setAlert } from "../../src/customHook/setAlert";
+import toast from "../../src/components/Toast";
 
 const UploadPage = () => {
   const [image, setImage] = useState(addImage);
@@ -39,31 +39,31 @@ const UploadPage = () => {
     const imageData = await response.json();
 
     if (imageData.ok) {
-      // let snapData = {
-      //   ...formData,
-      //   path: imageData.path,
-      //   createdAt: new Date().toLocaleString('en-US', { day: 'numeric', year: 'numeric', month: 'short', })
-      // }
+      let snapData = {
+        ...formData,
+        path: imageData.path,
+        createdAt: new Date().toLocaleString('en-US', { day: 'numeric', year: 'numeric', month: 'short', })
+      }
+      let res = await fetch('/api/snaps', {
+        method: 'POST',
+        body: JSON.stringify(snapData),
+      });
 
-      // let res = await fetch('/api/snaps', {
-      //   method: 'POST',
-      //   body: JSON.stringify(snapData),
-      // });
+      let data = await res.json();
 
-      // let data = await res.json();
-
-      // if (data.success) {
-      //   // reset the fields
-      //   console.log("done");
-      //   // set the message
-      // }
-      setAlert({title: "success", message:"Successfully uploaded"});
-
+      if (data.success) {
+        toast({type: "success", message:"Successfully uploaded"});
+      }
+      else {
+        toast({type: "error", message:"Server Data Upload Failed"});
+      }
+    }
+    else {
+      toast({type: "error", message:"Image Upload Failed"});
     }
   };
 
   return (
-    // <>
     <section className="upload">
       <h2>Add New Story</h2>
       <form onSubmit={uploadToServer} className="upload_form">
@@ -80,7 +80,6 @@ const UploadPage = () => {
             onChange={uploadToClient}
             accept=".png, .jpg, .jpeg"
             hidden
-          // required
           />
         </div>
         <div className="upload_content">
@@ -123,7 +122,6 @@ const UploadPage = () => {
         </button>
       </form>
     </section>
-    // </>
   );
 }
 
