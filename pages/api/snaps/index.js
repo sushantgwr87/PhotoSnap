@@ -59,6 +59,7 @@ async function addSnap(req, res) {
         });
     } catch (error) {
         // return an error
+        console.log(error);
         return res.json({
             message: new Error(error).message,
             success: false,
