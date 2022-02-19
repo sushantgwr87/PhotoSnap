@@ -8,7 +8,19 @@ export const config = {
     }
 };
 
-export default async function UploadImage(req, res) {
+export default async function handler(req, res) {
+    // switch the methods
+    switch (req.method) {
+        case 'POST': {
+            return UploadImage(req, res);
+        }
+        case 'DELETE': {
+            return DeleteImage(req, res);
+        }
+    }
+}
+
+async function UploadImage(req, res) {
 
     const unique_id = uuid();
 
@@ -24,10 +36,13 @@ export default async function UploadImage(req, res) {
         var oldPath = data.files.image.filepath;
         var newPath = `./public/upload/image_${unique_id}.jpg`;
         mv(oldPath, newPath, function (err) { });
-        res.status(200).json({ ok: true, message: "Image Uploaded", path: newPath.replace("./public", "") })
+        res.status(200).json({ ok: true, path: newPath.replace("./public", "") })
     }
     catch (error) {
-        res.status(500).json({ ok: false, message: error.message });
+        res.status(500).json({ ok: false });
         return;
     }
+}
+async function DeleteImage(req, res) {
+    fs.unlinkSync(res.body);
 }
