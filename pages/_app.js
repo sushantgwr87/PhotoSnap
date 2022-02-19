@@ -1,8 +1,10 @@
 import '../styles/globals.css'
 import '../styles/pages.css';
-import Layout from '../src/components/Layout'
+import Layout from '../src/components/Layout';
 import Head from 'next/head';
-import { SessionProvider } from "next-auth/react"
+import { SessionProvider } from "next-auth/react";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function MyApp({
   Component,
@@ -22,6 +24,18 @@ function MyApp({
       </Head>
       <Layout>
         <Component {...pageProps} />
+        <ToastContainer
+          position="top-center"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme='colored'
+        />
       </Layout>
     </SessionProvider>
   );
