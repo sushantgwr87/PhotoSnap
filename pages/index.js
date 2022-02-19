@@ -42,32 +42,30 @@ const introductionData = [
   },
 ]
 
-const griddata = [
-  {
-    title: "Mountain",
-    author: "Joseph D'zuza",
-    path: "/upload/adventure.jpg"
-  },
-  {
-    title: "River",
-    author: "Andrew Garfield",
-    path: "/upload/building_day2.jpg"
-  },
-  {
-    title: "Building",
-    author: "Tobey Megouer",
-    path: "/upload/ice.jpg"
-  },
-  {
-    title: "Wild Venture",
-    author: "Benjamin Franklin",
-    path: "/upload/tiger.jpg"
-  },
-]
+// const griddata = [
+//   {
+//     title: "Mountain",
+//     author: "Joseph D'zuza",
+//     path: "/upload/adventure.jpg"
+//   },
+//   {
+//     title: "River",
+//     author: "Andrew Garfield",
+//     path: "/upload/building_day2.jpg"
+//   },
+//   {
+//     title: "Building",
+//     author: "Tobey Megouer",
+//     path: "/upload/ice.jpg"
+//   },
+//   {
+//     title: "Wild Venture",
+//     author: "Benjamin Franklin",
+//     path: "/upload/tiger.jpg"
+//   },
+// ]
 
 const Home = ({snaps}) => {
-
-  // console.log(snaps);
 
   return (
     <>
@@ -86,7 +84,7 @@ const Home = ({snaps}) => {
         }
       </section>
       <section>
-        <ImageGrid gridData={griddata} />
+        <ImageGrid gridData={snaps} />
       </section>
       <section>
         <div className='features'>
@@ -108,7 +106,7 @@ Home.displayName = "Home";
 
 export default Home;
 
-export async function getServerSideProps(ctx) {
+export async function getStaticProps(context) {
   // get the current environment
   let dev = process.env.NODE_ENV !== 'production';
   let { DEV_URL, PROD_URL } = process.env;
@@ -124,3 +122,19 @@ export async function getServerSideProps(ctx) {
       },
   };
 }
+// export async function getServerSideProps(ctx) {
+//   // get the current environment
+//   let dev = process.env.NODE_ENV !== 'production';
+//   let { DEV_URL, PROD_URL } = process.env;
+
+//   // request posts from api
+//   let response = await fetch(`${dev ? DEV_URL : PROD_URL}/api/snaps`);
+//   // extract the data
+//   let data = await response.json();
+
+//   return {
+//       props: {
+//           snaps: data['message'],
+//       },
+//   };
+// }
