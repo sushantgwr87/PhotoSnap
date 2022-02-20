@@ -2,7 +2,6 @@ import React from 'react';
 import SVGIcon from '../src/components/SVGIcon';
 import ImageGrid from '../src/components/ImageGrid';
 import Card from '../src/components/card';
-import { getSnapData } from '../lib/snapsData';
 
 const featuredata = [
   {
@@ -42,29 +41,6 @@ const introductionData = [
     buttonText: 'View the Stories'
   },
 ]
-
-// const griddata = [
-//   {
-//     title: "Mountain",
-//     author: "Joseph D'zuza",
-//     path: "/upload/adventure.jpg"
-//   },
-//   {
-//     title: "River",
-//     author: "Andrew Garfield",
-//     path: "/upload/building_day2.jpg"
-//   },
-//   {
-//     title: "Building",
-//     author: "Tobey Megouer",
-//     path: "/upload/ice.jpg"
-//   },
-//   {
-//     title: "Wild Venture",
-//     author: "Benjamin Franklin",
-//     path: "/upload/tiger.jpg"
-//   },
-// ]
 
 const Home = ({snaps}) => {
 
@@ -109,12 +85,11 @@ export default Home;
 
 export async function getStaticProps() {
   // get the current environment
-  // let dev = process.env.NODE_ENV !== 'production';
-  // let { DEV_URL, PROD_URL } = process.env;
+  let dev = process.env.NODE_ENV !== 'production';
+  let { DEV_URL, PROD_URL } = process.env;
 
   // request posts from api
-  // let response = await fetch(`${dev ? DEV_URL : PROD_URL}/api/snaps`);
-  let response = await getSnapData();
+  let response = await fetch(`${dev ? DEV_URL : PROD_URL}/api/snaps?limit=4`);
   // extract the data
   let data = await response.json();
 
@@ -124,19 +99,3 @@ export async function getStaticProps() {
       },
   };
 }
-// export async function getServerSideProps(ctx) {
-//   // get the current environment
-//   let dev = process.env.NODE_ENV !== 'production';
-//   let { DEV_URL, PROD_URL } = process.env;
-
-//   // request posts from api
-//   let response = await fetch(`${dev ? DEV_URL : PROD_URL}/api/snaps`);
-//   // extract the data
-//   let data = await response.json();
-
-//   return {
-//       props: {
-//           snaps: data['message'],
-//       },
-//   };
-// }
