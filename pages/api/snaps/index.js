@@ -3,7 +3,6 @@ const ObjectId = require('mongodb').ObjectId;
 
 export default async function handler(req, res) {
     // switch the methods
-    console.log(req.method);
     switch (req.method) {
         case 'GET': {
             return getSnaps(req, res);
@@ -20,64 +19,6 @@ export default async function handler(req, res) {
         case 'DELETE': {
             return deleteSnap(req, res);
         }
-
-        case 'GETID': {
-            return getSnapId(req,res);
-        }
-
-        case 'GET_LIMIT': {
-            return getSnapsLimit(req,res);
-        }
-    }
-}
-
-async function getSnapId(req,res){
-    console.log("here");
-    console.log(req);
-    try {
-        // connect to the database
-        let { db } = await connectToDatabase();
-        // fetch the posts
-        var query = { _id: new ObjectId(req.body) };
-        let snaps = await db
-            .collection('snaps')
-            .find(query)
-        // return the snaps
-        return res.json({
-            message: snaps,
-            success: true,
-        });
-    } catch (error) {
-        // return the error
-        return res.json({
-            message: new Error(error).message,
-            success: false,
-        });
-    }
-}
-
-async function getSnapsLimit(req,res){
-    try {
-        // connect to the database
-        let { db } = await connectToDatabase();
-        // fetch the posts
-        let snaps = await db
-            .collection('snaps')
-            .find({})
-            .limit(4)
-            .sort({ published: -1 })
-            .toArray();
-        // return the snaps
-        return res.json({
-            message: JSON.parse(JSON.stringify(snaps)),
-            success: true,
-        });
-    } catch (error) {
-        // return the error
-        return res.json({
-            message: new Error(error).message,
-            success: false,
-        });
     }
 }
 
@@ -85,10 +26,14 @@ async function getSnaps(req,res){
     try {
         // connect to the database
         let { db } = await connectToDatabase();
+        //Query parameters for specific story and limit of fetch documents.
+        let limit = req.query.limit ? JSON.parse(req.query.limit) : 0;
+        let snapId = req.query.id ? {_id: new ObjectId(req.query.id)} : {};
         // fetch the posts
         let snaps = await db
             .collection('snaps')
-            .find({})
+            .find(snapId)
+            .limit(limit)
             .sort({ published: -1 })
             .toArray();
         // return the snaps
