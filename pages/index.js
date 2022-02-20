@@ -2,6 +2,7 @@ import React from 'react';
 import SVGIcon from '../src/components/SVGIcon';
 import ImageGrid from '../src/components/ImageGrid';
 import Card from '../src/components/card';
+import { getSnapData } from '../lib/snapsData';
 
 const featuredata = [
   {
@@ -106,13 +107,14 @@ Home.displayName = "Home";
 
 export default Home;
 
-export async function getStaticProps(context) {
+export async function getStaticProps() {
   // get the current environment
-  let dev = process.env.NODE_ENV !== 'production';
-  let { DEV_URL, PROD_URL } = process.env;
+  // let dev = process.env.NODE_ENV !== 'production';
+  // let { DEV_URL, PROD_URL } = process.env;
 
   // request posts from api
-  let response = await fetch(`${dev ? DEV_URL : PROD_URL}/api/snaps`);
+  // let response = await fetch(`${dev ? DEV_URL : PROD_URL}/api/snaps`);
+  let response = await getSnapData();
   // extract the data
   let data = await response.json();
 

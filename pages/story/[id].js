@@ -1,11 +1,17 @@
 import React from 'react';
 import Image from 'next/image';
 import SVGIcon from '../../src/components/SVGIcon';
-import { getSnapData } from '../../lib/snapsData';
+// import { getSnapData } from '../../lib/snapsData';
 
 export const getStaticPaths = async () =>{
  
-  let data = await getSnapData();
+  let dev = process.env.NODE_ENV !== 'production';
+  let { DEV_URL, PROD_URL } = process.env;
+
+  // request posts from api
+  let response = await fetch(`${dev ? DEV_URL : PROD_URL}/api/snaps`);
+  // extract the data
+  let data = await response.json();
   // console.log(data);
 
   const paths = data.message.map(snap=> {
@@ -22,7 +28,21 @@ export const getStaticPaths = async () =>{
 export const getStaticProps= async (context) => {
   const id = context.params.id;
   console.log(id);
-  let data = await getSnapData(id);
+  // let dev = process.env.NODE_ENV !== 'production';
+  // let { DEV_URL, PROD_URL } = process.env;
+
+  // request posts from api
+  let dev = process.env.NODE_ENV !== 'production';
+  let { DEV_URL, PROD_URL } = process.env;
+
+  // request posts from api
+  let response = await fetch(`${dev ? DEV_URL : PROD_URL}/api/snaps`,{
+    method: 'GETID',
+    body: id
+  });
+  // extract the data
+  console.log(response);
+  let data = await response.json();
 
   return {
     props: {
