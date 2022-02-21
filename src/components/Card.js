@@ -18,7 +18,7 @@ const Card = ({ imagePath, cardHead, cardBody, isModal = false, isbutton = true,
                 <h3>{cardHead}</h3>
                 <p>{cardBody}</p>
                 {isbutton && (isModal ? (
-                    <button onClick={() => setModalShow(true)}>
+                    <button className='card_btn___hover' onClick={() => setModalShow(true)}>
                         <span>{buttonText}</span>
                         <div className="arrow">
                             <SVGIcon name="arrow" fill={isdark ? "#fff" : "#000"} />
@@ -27,7 +27,7 @@ const Card = ({ imagePath, cardHead, cardBody, isModal = false, isbutton = true,
                 ) :
                     <Link href="/stories" passHref>
                         <a>
-                            <button>
+                            <button className='card_btn___hover'>
                                 <span>{buttonText}</span>
                                 <div className="arrow">
                                     <SVGIcon name="arrow" fill={isdark ? "#fff" : "#000"} />
