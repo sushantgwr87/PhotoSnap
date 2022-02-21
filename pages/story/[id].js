@@ -8,7 +8,7 @@ export const getStaticPaths = async () =>{
   let { DEV_URL, PROD_URL } = process.env;
 
   // request posts from api
-  let response = await fetch(`${dev ? DEV_URL : PROD_URL}/api/snaps`);
+  let response = await fetch(new URL(url,`${dev ? DEV_URL : PROD_URL}/api/snaps`));
   // extract the data
   let data = await response.json();
   // console.log(data);
@@ -32,7 +32,7 @@ export const getStaticProps= async (context) => {
   let { DEV_URL, PROD_URL } = process.env;
 
   // request posts from api
-  let response = await fetch(`${dev ? DEV_URL : PROD_URL}/api/snaps?id=${id}`);
+  let response = await fetch(new URL(url,`${dev ? DEV_URL : PROD_URL}/api/snaps?id=${id}`));
   // extract the data
   let data = await response.json();
 
