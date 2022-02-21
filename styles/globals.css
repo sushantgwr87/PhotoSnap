@@ -152,3 +152,14 @@ main {
   flex-direction: column;
   justify-content: center;
 }
+
+.content {
+  opacity: 0;
+  transform: translateY(100vw);
+  transition: opacity 1s ease-in, transform 1s ease;
+}
+
+.fadeIn {
+  opacity: 1;
+  transform: translateY(0);
+}
