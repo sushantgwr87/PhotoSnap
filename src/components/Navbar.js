@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import useBreakpoints from '../customHook/useBreakpoints';
-import styles from '../../styles/Navbar.module.css';
+import styles from '../../styles/navbar.module.css';
 import Icon from './Icon';
 import Modal from './Modal';
 import useMountTransition from '../customHook/useMountTransition';
