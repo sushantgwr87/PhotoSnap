@@ -69,13 +69,13 @@ const Navbar = () => {
 
 
 	const handleLogout = () => {
-		signOut({ redirect: false });
+		signOut({ callbackUrl: "/" });
 		setShowSubmenu(false);
 	};
 
 	const logged_menu = (
 		hasTransitionedIn && loginAuth ?
-			<div className={styles.profile_menu}>
+			<div className={`${styles.profile_menu} ${hasTransitionedIn && loginAuth && styles.profile_menu___show}`}>
 				<button className={styles.profile_btn} onClick={() => setShowSubmenu(!showSubmenu)}>{session.user.name}</button>
 				<div className={`${styles.sub_menu} ${showSubmenu ? styles.sub_menu___show : styles.sub_menu___hide}`} ref={subMenu}>
 					<span className={styles.sub_menu_item}>
