@@ -11,7 +11,6 @@ export const getStaticPaths = async () =>{
   let response = await fetch(`${dev ? DEV_URL : PROD_URL}/api/snaps`);
   // extract the data
   let data = await response.json();
-  // console.log(data);
 
   const paths = data.message.map(snap=> {
     return {
