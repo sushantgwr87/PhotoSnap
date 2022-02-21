@@ -58,6 +58,8 @@ const UploadPage = () => {
 
       if (data.success) {
         toast({ type: "success", message: "Successfully uploaded" });
+        setFormData({title:"",author:"",body:""});
+        setCreateObjectURL(addImage);
       }
       else {
         toast({ type: "error", message: "Server Data Upload Failed" });
