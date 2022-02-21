@@ -1,6 +1,27 @@
 /* ----------------------- Card Text Button Hover styling below ----------------------- */
+.card_btn___hover {
+    display: block;
+    border: none;
+    transform: translateY(0);
+}
+
 .card_btn___hover:hover {
-    
+    animation: btn_hover 0.5s ease-in-out forwards;
+}
+
+@keyframes btn_hover {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(10px);
+    }
+    80% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
 }
 
 /* ----------------------- Story page styling below ----------------------- */
@@ -25,46 +46,59 @@
     width: 100%;
     height: 100vh;
     filter: brightness(0.9);
-    -webkit-box-reflect: below 0px linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.3));
+    -webkit-box-reflect: below 0px linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4));
 }
 
 .story_image img {
     object-fit: cover;
 }
 
-.story_image_container h3 {
+/* for any text over story image */
+/* .story_image_container h3 {
     position: absolute;
     width: 100%;
     display: block;
     top: 20%;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.699);
+    color: rgba(255, 255, 255, 0.507);
     font-size: calc(16px + 1vw);
     font-family: var(--fontHead);
     letter-spacing: 2px;
     margin: auto;
+    transition: all 0.5s ease;
 }
+
+.story_image_container h3:hover {
+    opacity: 0;
+}*/
 
 .story_arrow {
     position: absolute;
     width: 100%;
     display: block;
     margin: auto;
-    bottom: 20%;
+    bottom: 15%;
     animation: bounce 2s infinite;
 }
 
 @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-      transform: translateY(0);
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0);
     }
+
     40% {
-      transform: translateY(-30px);
+        transform: translateY(-30px);
     }
+
     60% {
-      transform: translateY(-15px);
+        transform: translateY(-15px);
     }
-  }
+}
 
 .story_content {
     position: relative;
@@ -90,7 +124,7 @@
     font-style: italic;
 }
 
-.story_content p  {
+.story_content p {
     font-family: var(--fontBody);
     font-size: calc(12px + 0.3vw);
     padding-top: 30px;
@@ -115,11 +149,10 @@
 .stories_featured_image::after {
     position: absolute;
     content: "";
-    /* top: 0; */
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to left, rgba(0, 0, 0, 0),rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5));
+    background: linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.3));
 }
 
 .stories_featured_image img {
@@ -152,12 +185,12 @@
     color: var(--lightgreyColor);
     padding-top: 15px;
 }
+
 .stories_featured_content p {
     font-family: var(--fontBody);
     letter-spacing: 1px;
     font-size: calc(12px + 0.3vw);
-    /* color: var(--lightgreyColor); */
-    color: var(--buttonColor);
+    color: var(--lightgreyColor);
     padding: 30px 0;
 }
 
@@ -187,16 +220,18 @@
     .stories_featured_content h3 {
         width: 100%;
     }
+
     .stories_featured_image {
         height: 500px;
     }
+
     .stories_featured_content {
         position: relative;
         padding: 50px;
         width: 100%;
-        /* height: 200px; */
         background-color: var(--secondaryColor);
     }
+
     .stories_featured_image::after {
         width: 0;
     }
@@ -529,6 +564,7 @@
     margin: auto;
     padding: 30px;
 }
+
 .upload h2 {
     position: relative;
     display: block;
@@ -547,18 +583,21 @@
     width: 50%;
     margin: auto;
 }
+
 .upload_form_image {
     position: relative;
     display: block;
     height: 20vh;
     margin: auto;
 }
+
 .upload_image {
     width: 150px;
     height: 100%;
     margin: auto;
     cursor: pointer;
 }
+
 .upload_content {
     position: relative;
     padding: 10px 0;
@@ -576,6 +615,7 @@
     padding-top: 10px;
     padding-bottom: 5px;
 }
+
 .upload_content___input {
     position: relative;
     font-family: var(--fontBody);
@@ -595,10 +635,15 @@
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 2px;
-    background-color: rgb(83, 236, 83);
+    background-color: rgb(77, 223, 77);
     border-radius: 4px;
     margin: auto;
 }
+
+.upload_form___btn:hover {
+    box-shadow: inset 0 0 100px 100px rgba(255, 255, 255, 0.1);
+}
+
 @media only screen and (max-width: 800px) {
     .upload_form {
         width: 100%;
