@@ -1,7 +1,7 @@
-import React, { useEffect,useRef } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import ImageGrid from '../src/components/ImageGrid';
-import SVGIcon from '../src/components/SVGIcon';
+import Icon from '../src/components/Icon';
 import Link from 'next/link';
 
 const Stories = ({snaps}) => {
@@ -25,7 +25,7 @@ const Stories = ({snaps}) => {
               <div className='stories_featured_content___read_btn card_btn___hover'>
                 <span>Read the Story</span>
                 <div className="arrow">
-                  <SVGIcon name="arrow" fill={'#fff'} />
+                  <Icon name="arrow" fill={'#fff'} />
                 </div>
               </div>
             </a>

@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import styles from '../../styles/Grid.module.css';
-import SVGIcon from './SVGIcon';
+import Icon from './Icon';
 import Link from 'next/link';
 
 const ImageGrid = ({ gridData }) => {
@@ -23,7 +23,7 @@ const ImageGrid = ({ gridData }) => {
                     <div className={styles.grid_content___read_btn}>
                       <span>Read Story</span>
                       <div className="arrow">
-                        <SVGIcon name="arrow" fill={'#fff'} />
+                        <Icon name="arrow" fill={'#fff'} />
                       </div>
                     </div>
                 </div>

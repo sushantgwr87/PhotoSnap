@@ -1,7 +1,7 @@
 import React from 'react';
-import SVGIcon from './SVGIcon';
+import Icon from './Icon';
 import Image from 'next/image';
-import styles from '../../styles/card.module.css';
+import styles from '../../styles/Card.module.css';
 import Modal from './Modal';
 import Link from 'next/link';
 
@@ -21,7 +21,7 @@ const Card = ({ imagePath, cardHead, cardBody, isModal = false, isbutton = true,
                     <button className='card_btn___hover' onClick={() => setModalShow(true)}>
                         <span>{buttonText}</span>
                         <div className="arrow">
-                            <SVGIcon name="arrow" fill={isdark ? "#fff" : "#000"} />
+                            <Icon name="arrow" fill={isdark ? "#fff" : "#000"} />
                         </div>
                     </button>
                 ) :
@@ -30,7 +30,7 @@ const Card = ({ imagePath, cardHead, cardBody, isModal = false, isbutton = true,
                             <button className='card_btn___hover'>
                                 <span>{buttonText}</span>
                                 <div className="arrow">
-                                    <SVGIcon name="arrow" fill={isdark ? "#fff" : "#000"} />
+                                    <Icon name="arrow" fill={isdark ? "#fff" : "#000"} />
                                 </div>
                             </button>
                         </a>

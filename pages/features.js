@@ -1,6 +1,6 @@
 import React from 'react';
-import Card from '../src/components/card';
-import SVGIcon from '../src/components/SVGIcon';
+import Card from '../src/components/Card';
+import Icon from '../src/components/Icon';
 import card_Image from '../public/assets/feature.jpg';
 import useBreakpoints from '../src/customHook/useBreakpoints';
 
@@ -60,7 +60,7 @@ const Features = () => {
                 <div className='features_page'>
                     {featuredata.map((value, index) => (
                         <div className="features_page___feature" key={index}>
-                            <SVGIcon name={value.icon} width={isXs ? '100px' : '150px'} height={isXs ? '100px' : '150px'} />
+                            <Icon name={value.icon} width={isXs ? '100px' : '150px'} height={isXs ? '100px' : '150px'} />
                             <h3>{value.head}</h3>
                             <p>{value.body}</p>
                         </div>

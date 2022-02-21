@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
-import SVGIcon from "./SVGIcon";
+import Icon from "./Icon";
 import useMountTransition from "../customHook/useMountTransition";
-import styles from "../../styles/modal.module.css";
+import styles from "../../styles/Modal.module.css";
 import { signIn } from "next-auth/react";
 
 const Modal = ({ show, onClose }) => {
@@ -45,7 +45,7 @@ const Modal = ({ show, onClose }) => {
     <div className={`${styles.modal_overlay} ${hasTransitionedIn && show ? styles.modal_show : styles.modal_hide}`} onClick={onClose}>
       <div className={`${styles.modal} ${hasTransitionedIn && show ? styles.modal_show : styles.modal_hide}`} onClick={e => e.stopPropagation()}>
         <div className={styles.modal_header}>
-          <SVGIcon name="sgwr" secondaryfill="#07b053" width="30%" />
+          <Icon name="sgwr" secondaryfill="#07b053" width="30%" />
           <h3>Admin Login</h3>
         </div>
         <div className={styles.modal_body}>

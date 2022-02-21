@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import SVGIcon from '../../src/components/SVGIcon';
+import Icon from '../../src/components/Icon';
 
 export const getStaticPaths = async () =>{
  
@@ -54,7 +54,7 @@ const Story = ({snaps}) => {
             <Image layout='fill' src={snap.path} alt='Story_Image' />
           </div>
           <div className="story_arrow">
-            <SVGIcon name='arrow' fill='#fff' width='50px' transform='rotate(90)' />
+            <Icon name='arrow' fill='#fff' width='50px' transform='rotate(90)' />
           </div>
         </div>
         <div className='story_content'>

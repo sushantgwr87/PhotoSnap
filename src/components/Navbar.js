@@ -2,8 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import useBreakpoints from '../customHook/useBreakpoints';
 import styles from '../../styles/Navbar.module.css';
-import SVGIcon from './SVGIcon';
-import Modal from '../components/Modal';
+import Icon from './Icon';
+import Modal from './Modal';
 import useMountTransition from '../customHook/useMountTransition';
 import { signOut, useSession } from "next-auth/react";
 
@@ -97,7 +97,7 @@ const Navbar = () => {
 			<nav>
 				<Link href="/" passHref>
 					<a className={styles.nav_logo___link}>
-						<SVGIcon className={styles.nav_logo} name="photosnap" fill={'#000'} />
+						<Icon className={styles.nav_logo} name="photosnap" fill={'#000'} />
 					</a>
 				</Link>
 				{isMd ?

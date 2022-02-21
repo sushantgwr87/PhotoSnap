@@ -280,7 +280,7 @@ const getPath = (name, props) => {
   }
 };
 
-const SVGIcon = ({
+const Icon = ({
   name = "",
   transform="",
   fill = "#141414",
@@ -301,4 +301,4 @@ const SVGIcon = ({
   </svg>
 );
 
-export default SVGIcon;
+export default Icon;

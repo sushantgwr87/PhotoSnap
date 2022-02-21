@@ -1,7 +1,7 @@
 import React from 'react';
-import SVGIcon from '../src/components/SVGIcon';
+import Icon from '../src/components/Icon';
 import ImageGrid from '../src/components/ImageGrid';
-import Card from '../src/components/card';
+import Card from '../src/components/Card';
 
 const featuredata = [
   {
@@ -68,7 +68,7 @@ const Home = ({snaps}) => {
         <div className='features'>
           {featuredata.map((value, index) => (
             <div className="feature" key={index}>
-              <SVGIcon name={value.icon} width='100px' height='100px' />
+              <Icon name={value.icon} width='100px' height='100px' />
               <h3>{value.head}</h3>
               <p>{value.body}</p>
             </div>

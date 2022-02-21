@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Card from '../src/components/card';
+import Card from '../src/components/Card';
 import card_Image from '../public/assets/pricing.jpg';
 
 const pricingCardData = {

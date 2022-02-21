@@ -1,8 +1,8 @@
 import React,{useState} from 'react';
 import Link from 'next/link';
 import styles from '../../styles/Footer.module.css';
-import SVGIcon from '../../src/components/SVGIcon';
-import Modal from '../components/Modal';
+import Icon from './Icon';
+import Modal from './Modal';
 
 const Footer = () => {
   const portfolioLink = "https://sushantgangwar.netlify.app/";
@@ -14,22 +14,22 @@ const Footer = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.footer_Logo}>
-        <SVGIcon name="photosnap" fill={'#fff'} />
+        <Icon name="photosnap" fill={'#fff'} />
       </div>
       <div className={styles.footer_outLinks}>
         <Link href={portfolioLink}>
           <a target="_blank" rel="noopener noreferrer">
-            <SVGIcon name="sgwr" fill={'#000'} width={'38px'} />
+            <Icon name="sgwr" fill={'#000'} width={'38px'} />
           </a>
         </Link>
         <Link href={githubLink}>
           <a target="_blank" rel="noopener noreferrer">
-            <SVGIcon name="github" fill={'#fff'} width={'40px'} />
+            <Icon name="github" fill={'#fff'} width={'40px'} />
           </a>
         </Link>
         <Link href={linkedinLink}>
           <a target="_blank" rel="noopener noreferrer">
-            <SVGIcon name="linkedin" fill={'#fff'} width={'40px'} />
+            <Icon name="linkedin" fill={'#fff'} width={'40px'} />
           </a>
         </Link>
       </div>
@@ -42,7 +42,7 @@ const Footer = () => {
         <button className={styles.footer_modal___btn} onClick={() => setModalShow(true)}>
         <span>Get an invite</span>
         <div className="arrow">
-          <SVGIcon name="arrow" fill={'#000'} />
+          <Icon name="arrow" fill={'#000'} />
         </div>
       </button>
       <Modal onClose={() => setModalShow(false)} show={modalShow} />
