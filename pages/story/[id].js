@@ -61,7 +61,6 @@ const Story = ({snaps}) => {
         <div className='story_content'>
           <h3>{snap.title}</h3>
           <span>{snap.author}</span>
-          {/* <p>{snap.body}</p> */}
           {snap.body.split('\n').map((val,index)=><p key={index}>{val}</p>)}
         </div>
       </section>
