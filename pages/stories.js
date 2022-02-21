@@ -22,7 +22,7 @@ const Stories = ({snaps}) => {
           <p>{featuredSnap.body && featuredSnap.body.length > 300 ? `${featuredSnap.body.substring(0, 300)}...` : featuredSnap.body}</p>
           <Link href={'/story/'+featuredSnap._id} passHref>
             <a>
-              <div className='stories_featured_content___read_btn'>
+              <div className='stories_featured_content___read_btn card_btn___hover'>
                 <span>Read the Story</span>
                 <div className="arrow">
                   <SVGIcon name="arrow" fill={'#fff'} />
