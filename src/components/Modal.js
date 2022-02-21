@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import Icon from "./Icon";
 import useMountTransition from "../customHook/useMountTransition";
-import styles from "../../styles/Modal.module.css";
+import styles from "../../styles/modal.module.css";
 import { signIn } from "next-auth/react";
 
 const Modal = ({ show, onClose }) => {
