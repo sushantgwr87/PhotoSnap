@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import Icon from '../../src/components/icons';
+import Icon from '../../src/components/Icons';
 
 export const getStaticPaths = async () =>{
  
