@@ -53,6 +53,7 @@ const Home = ({snaps}) => {
             cardHead={value.head}
             cardBody={value.body}
             isdark={index > 0 ? false : true}
+            isModal={index==0 && true}
             isreverse={index == 1 && true}
             buttonText={value.buttonText}
             key={index}
