@@ -165,7 +165,7 @@
   transform: rotate(45deg) translate(35px, -35px);
 }
 
-
+/* Admin Navbar menu styling */
 .profile_menu {
   position: relative;
   display: flex;
@@ -173,6 +173,15 @@
   justify-content: center;
   align-items: center;
   margin-left: auto;
+  opacity: 0;
+  perspective: 200px;
+  transform-origin: 0% 0%;
+  transform-style:preserve-3d;
+}
+
+.profile_menu.profile_menu___show {
+  transition: all 1.5s ease-in;
+  opacity: 1;
 }
 
 .profile_btn {
@@ -197,6 +206,19 @@
   height: 100%;
   top: 160%;
   right: 0%;
+  opacity: 0;
+  transform-origin: 0% 0%;
+  transform: rotateX(-90deg);
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.sub_menu.sub_menu___show {
+  transform: rotateX(0deg);
+  opacity: 1;
+}
+.sub_menu.sub_menu___hide {
+  transform: rotateX(-90deg);
+  opacity: 0;
 }
 
 .sub_menu_item {
@@ -222,13 +244,6 @@
   text-transform: uppercase;
   background-color: transparent;
   color: var(--primaryColor);
-}
-
-.sub_menu.sub_menu___show {
-  opacity: 1;
-}
-.sub_menu.sub_menu___hide {
-  opacity: 0;
 }
 
 /* media queries */
