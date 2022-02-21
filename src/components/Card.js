@@ -2,8 +2,12 @@ import React from 'react';
 import SVGIcon from './SVGIcon';
 import Image from 'next/image';
 import styles from '../../styles/card.module.css';
+import Modal from './Modal';
+import Link from 'next/link';
 
-const Card = ({ imagePath, cardHead, cardBody, isbutton=true, isdark=true, isreverse=false, buttonText }) => {
+const Card = ({ imagePath, cardHead, cardBody, isModal = false, isbutton = true, isdark = true, isreverse = false, buttonText }) => {
+
+    const [modalShow, setModalShow] = React.useState(false);
 
     return (
         <div className={`${styles.card} ${isdark ? styles.card___dark : styles.card___light} ${isreverse && styles.card___reverse}`}>
@@ -13,14 +17,27 @@ const Card = ({ imagePath, cardHead, cardBody, isbutton=true, isdark=true, isrev
             <div className={styles.card_content}>
                 <h3>{cardHead}</h3>
                 <p>{cardBody}</p>
-                {isbutton && (
-                    <button>
+                {isbutton && (isModal ? (
+                    <button onClick={() => setModalShow(true)}>
                         <span>{buttonText}</span>
                         <div className="arrow">
                             <SVGIcon name="arrow" fill={isdark ? "#fff" : "#000"} />
                         </div>
                     </button>
-                )}
+                ) :
+                    <Link href="/stories" passHref>
+                        <a>
+                            <button>
+                                <span>{buttonText}</span>
+                                <div className="arrow">
+                                    <SVGIcon name="arrow" fill={isdark ? "#fff" : "#000"} />
+                                </div>
+                            </button>
+                        </a>
+                    </Link>
+                )
+                }
+                <Modal onClose={() => setModalShow(false)} show={modalShow} />
             </div>
         </div>
     );
