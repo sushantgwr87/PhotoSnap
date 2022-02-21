@@ -53,6 +53,7 @@ const Story = ({snaps}) => {
           <div className='story_image'>
             <Image layout='fill' src={snap.path} alt='Story_Image' />
           </div>
+          <h3>PhotoSnap Presents This Story</h3>
           <div className="story_arrow">
             <SVGIcon name='arrow' fill='#fff' width='50px' transform='rotate(90)' />
           </div>
@@ -60,7 +61,8 @@ const Story = ({snaps}) => {
         <div className='story_content'>
           <h3>{snap.title}</h3>
           <span>{snap.author}</span>
-          <p>{snap.body}</p>
+          {/* <p>{snap.body}</p> */}
+          {snap.body.split('\n').map((val,index)=><p key={index}>{val}</p>)}
         </div>
       </section>
     </>
