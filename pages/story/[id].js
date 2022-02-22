@@ -2,8 +2,8 @@ import React from 'react';
 import Image from 'next/image';
 import Icon from '../../src/components/Icon';
 
-export const getStaticPaths = async () =>{
- 
+export const getStaticPaths = async () => {
+
   let dev = process.env.NODE_ENV !== 'production';
   let { DEV_URL, PROD_URL } = process.env;
 
@@ -12,18 +12,21 @@ export const getStaticPaths = async () =>{
   // extract the data
   let data = await response.json();
 
-  const paths = data.message.map(snap=> {
+  if (data.success) {
+    const paths = data.message.map(snap => {
+      return {
+        params: { id: snap._id.toString() }
+      }
+    })
+
     return {
-      params: {id: snap._id.toString()}
-    }
-  })
-  return {
-    paths,
-    fallback: false
-  };
+      paths,
+      fallback: false
+    };
+  }
 }
 
-export const getStaticProps= async (context) => {
+export const getStaticProps = async (context) => {
   const id = context.params.id;
 
   // request posts from api
@@ -35,15 +38,17 @@ export const getStaticProps= async (context) => {
   // extract the data
   let data = await response.json();
 
-  return {
-    props: {
-      snaps: data['message'],
+  if (data.success) {
+    return {
+      props: {
+        snaps: data['message'],
+      }
     }
   }
 }
 
-const Story = ({snaps}) => {
-  const snap=snaps[0];
+const Story = ({ snaps }) => {
+  const snap = snaps[0];
 
   return (
     <>
@@ -59,7 +64,7 @@ const Story = ({snaps}) => {
         <div className='story_content'>
           <h3>{snap.title}</h3>
           <span>{snap.author}</span>
-          {snap.body.split('\n').map((val,index)=><p key={index}>{val}</p>)}
+          {snap.body.split('\n').map((val, index) => <p key={index}>{val}</p>)}
         </div>
       </section>
     </>
