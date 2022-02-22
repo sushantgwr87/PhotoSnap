@@ -12,18 +12,16 @@ export const getStaticPaths = async () => {
   // extract the data
   let data = await response.json();
 
-  if (data.success) {
-    const paths = data.message.map(snap => {
-      return {
-        params: { id: snap._id.toString() }
-      }
-    })
-
+  const paths = data.message.map(snap=> {
     return {
-      paths,
-      fallback: false
-    };
-  }
+      params: {id: snap._id.toString()}
+    }
+  })
+  
+  return {
+    paths,
+    fallback: false
+  };
 }
 
 export const getStaticProps = async (context) => {
@@ -38,16 +36,14 @@ export const getStaticProps = async (context) => {
   // extract the data
   let data = await response.json();
 
-  if (data.success) {
-    return {
-      props: {
-        snaps: data['message'],
-      }
+  return {
+    props: {
+      snaps: data['message'],
     }
   }
 }
 
-const Story = ({ snaps }) => {
+const Story = ({snaps}) => {
   const snap = snaps[0];
 
   return (
@@ -64,7 +60,7 @@ const Story = ({ snaps }) => {
         <div className='story_content'>
           <h3>{snap.title}</h3>
           <span>{snap.author}</span>
-          {snap.body.split('\n').map((val, index) => <p key={index}>{val}</p>)}
+          {snap.body.split('\n').map((val,index)=><p key={index}>{val}</p>)}
         </div>
       </section>
     </>
