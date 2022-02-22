@@ -11,12 +11,6 @@ const Modal = ({ show, onClose }) => {
 
   const [error, setError] = useState(false);
 
-  const closeOnEscapeKeyDown = e => {
-    if ((e.charCode || e.keyCode) === 27) {
-      onClose();
-    }
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(e.target.username.value);
@@ -37,9 +31,15 @@ const Modal = ({ show, onClose }) => {
   useEffect(() => {
     setIsBrowser(true);
 
+    const closeOnEscapeKeyDown = e => {
+      if ((e.charCode || e.keyCode) === 27) {
+        onClose();
+      }
+    };
+
     document.body.addEventListener("keydown", closeOnEscapeKeyDown);
     return () => document.body.removeEventListener("keydown", closeOnEscapeKeyDown);
-  }, []);
+  }, [onClose]);
 
   const modalContent = hasTransitionedIn || show ? (
     <div className={`${styles.modal_overlay} ${hasTransitionedIn && show ? styles.modal_show : styles.modal_hide}`} onClick={onClose}>
