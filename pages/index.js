@@ -84,7 +84,7 @@ Home.displayName = "Home";
 
 export default Home;
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   // get the current environment
   let dev = process.env.NODE_ENV !== 'production';
   let { DEV_URL, PROD_URL } = process.env;
