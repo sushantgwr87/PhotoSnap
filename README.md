@@ -1,3 +1,18 @@
+<p align="center">
+  <img src="https://img.shields.io/github/deployments/sushantgwr87/PhotoSnap/production?&labelColor=000000&label=Vercel&logo=Vercel&style=for-the-badge" width="200" />
+</p>
+&nbsp; 
+
+<p align="center">
+  <img src="https://img.shields.io/badge/-Nextjs-black?style=for-the-badge&logo=nextdotjs" alt="Nextjs" height="35">
+  &nbsp; &nbsp; 
+  <img src="https://img.shields.io/badge/-Reactjs-fafafa?style=for-the-badge&logo=react&logoColor=blue" alt="Reactjs" height="35">
+  &nbsp; &nbsp; 
+  <img src="https://img.shields.io/badge/-CSS3-1572B6?style=for-the-badge&logo=css3" alt="CSS" height="35">
+  &nbsp; &nbsp; 
+  <img src="https://img.shields.io/badge/-JavaScript-black?style=for-the-badge&logo=javascript" alt="Javascript" height="35">
+</p>
+
 # Photosnap
 
 A Dynamic Blogging website with image upload using Next.js and server side rendering.
