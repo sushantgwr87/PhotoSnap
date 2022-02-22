@@ -1,34 +1,34 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Photosnap
 
-## Getting Started
+A Dynamic Blogging website with image upload using Next.js and server side rendering.
 
-First, run the development server:
+## About Project
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+This project is a based on blog websites with image uploads to server and article or story writing about them by authors.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Currently only Admin(me) can upload image or complete article on this website. This project also uses **Next-auth** feature to provide login auth for Admin Login.
+## Development Insights
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+This project uses SSR Environment with dynamic rendering of data.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+### Re-usable Components
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+This time, instead of creating basic components like for different design a new different component, I rather created a complex yet simple to configure component which can be used as per design needs.
 
-## Learn More
+Check [Card Component](https://github.com/sushantgwr87/PhotoSnap/blob/main/src/components/Card.js) and [Icon Component](https://github.com/sushantgwr87/PhotoSnap/blob/main/src/components/Icon.js) for referrence.
 
-To learn more about Next.js, take a look at the following resources:
+### Custom Hooks
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Instead of using CSS media queries and styling each component as per each screen size, I used custom media query hook to trigger rendering different styled component instead of bulking styling with media queries.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Custom Icons
 
-## Deploy on Vercel
+Normally i use SVG icons direct import in component as only footer or Navbar needs them but in this project it was different. Due to many icons or mock-ups involved as per design, I preferred more dynamic procedure.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+I created single component to render those SVG Icons dynamically. All SVG Icons were broken down in parts to work according JSX format.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Check [Icon.js](https://github.com/sushantgwr87/PhotoSnap/blob/main/src/components/Icon.js) file for complete referrence.
+
+## Documentation
+
+This project was created using `create-next-app`. Please do read and follow [Next.js Docs](https://nextjs.org/docs) for complete understanding of working with Next.js framework.
