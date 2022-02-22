@@ -37,6 +37,7 @@ async function getSnaps(req,res){
             .sort({ published: -1 })
             .toArray();
         // return the snaps
+        
         return res.json({
             message: JSON.parse(JSON.stringify(snaps)),
             success: true,
