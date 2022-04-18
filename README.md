@@ -18,16 +18,14 @@
 A Dynamic Blogging website with image upload using Next.js and server side rendering.
 
 ## About Project
-
 This project is a based on blog websites with image uploads to server and article or story writing about them by authors.
 
 Currently only Admin(me) can upload image or complete article on this website. This project also uses **Next-auth** feature to provide login auth for Admin Login.
-## Development Insights
 
+## Development Insights
 This project uses SSR Environment with dynamic rendering of data.
 
 ### Re-usable Components
-
 This time, instead of creating basic components like for different design a new different component, I rather created a complex yet simple to configure component which can be used as per design needs.
 
 Check [Card Component](https://github.com/sushantgwr87/PhotoSnap/blob/main/src/components/Card.js) and [Icon Component](https://github.com/sushantgwr87/PhotoSnap/blob/main/src/components/Icon.js) for referrence.
