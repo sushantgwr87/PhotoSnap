@@ -13,8 +13,6 @@ const Modal = ({ show, onClose }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e.target.username.value);
-    console.log(e.target.password.value);
     signIn("credentials", { redirect: false, username: e.target.username.value, password: e.target.password.value })
       .then(({ ok, error }) => {
         if (ok) {
