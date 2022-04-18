@@ -1,34 +1,49 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<p align="center">
+  <img src="https://img.shields.io/github/deployments/sushantgwr87/PhotoSnap/production?&labelColor=000000&label=Vercel&logo=Vercel&style=for-the-badge" width="200" />
+</p>
+&nbsp; 
 
-## Getting Started
+<p align="center">
+  <img src="https://img.shields.io/badge/-Nextjs-black?style=for-the-badge&logo=nextdotjs" alt="Nextjs" height="35">
+  &nbsp; &nbsp; 
+  <img src="https://img.shields.io/badge/-Reactjs-fafafa?style=for-the-badge&logo=react&logoColor=blue" alt="Reactjs" height="35">
+  &nbsp; &nbsp; 
+  <img src="https://img.shields.io/badge/-CSS3-1572B6?style=for-the-badge&logo=css3" alt="CSS" height="35">
+  &nbsp; &nbsp; 
+  <img src="https://img.shields.io/badge/-JavaScript-black?style=for-the-badge&logo=javascript" alt="Javascript" height="35">
+</p>
 
-First, run the development server:
+# Photosnap
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+A Dynamic Blogging website with image upload using Next.js and server side rendering.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## About Project
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+This project is a based on blog websites with image uploads to server and article or story writing about them by authors.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+Currently only Admin(me) can upload image or complete article on this website. This project also uses **Next-auth** feature to provide login auth for Admin Login.
+## Development Insights
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+This project uses SSR Environment with dynamic rendering of data.
 
-## Learn More
+### Re-usable Components
 
-To learn more about Next.js, take a look at the following resources:
+This time, instead of creating basic components like for different design a new different component, I rather created a complex yet simple to configure component which can be used as per design needs.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Check [Card Component](https://github.com/sushantgwr87/PhotoSnap/blob/main/src/components/Card.js) and [Icon Component](https://github.com/sushantgwr87/PhotoSnap/blob/main/src/components/Icon.js) for referrence.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Custom Hooks
 
-## Deploy on Vercel
+Instead of using CSS media queries and styling each component as per each screen size, I used custom media query hook to trigger rendering different styled component instead of bulking styling with media queries.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Custom Icons
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Normally i use SVG icons direct import in component as only footer or Navbar needs them but in this project it was different. Due to many icons or mock-ups involved as per design, I preferred more dynamic procedure.
+
+I created single component to render those SVG Icons dynamically. All SVG Icons were broken down in parts to work according JSX format.
+
+Check [Icon.js](https://github.com/sushantgwr87/PhotoSnap/blob/main/src/components/Icon.js) file for complete referrence.
+
+## Documentation
+
+This project was created using `create-next-app`. Please do read and follow [Next.js Docs](https://nextjs.org/docs) for complete understanding of working with Next.js framework.
