@@ -47,7 +47,7 @@ const Footer = () => {
       </button>
       <Modal onClose={() => setModalShow(false)} show={modalShow} />
       <div className={styles.footer_copyright}>
-        <h3>Copyright 2022. All Rights Reserved.</h3>
+        <h3>Copyright {new Date().getFullYear()}. All Rights Reserved.</h3>
       </div>
     </footer>
   );
